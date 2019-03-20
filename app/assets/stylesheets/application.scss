@@ -1,0 +1,52 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+
+ .tooltip_topic_wise {
+   background: #eee;
+   box-shadow: 0 0 10px #999999;
+   border-radius: 10px;
+   // border-style: solid;
+   // border-width: medium;
+   // border-color: #7F7FFF;
+   color: #333;
+   display: none;
+   font-size: 18px;
+   left: 130px;
+   padding: 10px;
+   position: absolute;
+   text-align: center;
+   top: 95px;
+   width: 80px;
+   z-index: 10;
+ }
+
+ .legend {
+ 	  font-size: 14px;
+ 	}
+ 	#pie_chart{
+ 	  height: 350px;
+ 	  margin: auto;
+ 	  position: relative;
+ 	  display: flex;
+ 		flex-direction: column;
+ 		justify-content: center;
+ 		align-items: center;
+ 		text-align: center;
+ 	  width: 400px;
+ 		padding-top: 10px;
+ 		padding-bottom: 20px;
+ 	}

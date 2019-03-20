@@ -1,0 +1,339 @@
+Please fill the following questionnaire given below:
+
+<%= form_for :init_test, url: "after_test" do |f| %>
+
+<div class="mcq_field">
+  <%=@arr_questions[0]%><br/>
+  <%= f.radio_button :Q0, "Pune Institute of Computer Technology" %>
+  <%= f.label :Q0, "Pune Institute of Computer Technology", value: "Pune Institute of Computer Technology" %>
+  <%= f.radio_button :Q0, "MIT/MITCOE" %>
+  <%= f.label :Q0, "MIT/MITCOE", value: "MIT/MITCOE" %>
+  <%= f.radio_button :Q0, "Cummins College of Engineering" %>
+  <%= f.label :Q0, "Cummins College of Engineering", value: "Cummins College of Engineering" %>
+  <%= f.radio_button :Q0, "Others" %>
+  <%= f.label :Q0, "Others", value: "Others" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[1]%><br/>
+  <%= f.radio_button :Q1, "Computer Engineering" %>
+  <%= f.label :Q1, "Computer Engineering", value: "Computer Engineering" %>
+  <%= f.radio_button :Q1, "IT" %>
+  <%= f.label :Q1, "IT", value: "IT" %>
+  <%= f.radio_button :Q1, "EnTC" %>
+  <%= f.label :Q1, "EnTC", value: "EnTC" %>
+  <%= f.radio_button :Q1, "Electrical Engineering" %>
+  <%= f.label :Q1, "Electrical Engineering", value: "Electrical Engineering" %>
+  <%= f.radio_button :Q1, "Mechanical or any other" %>
+  <%= f.label :Q1, "Mechanical or any other", value: "Mechanical or any other" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[2]%><br/>
+  <%= f.radio_button :Q2, "First Year" %>
+  <%= f.label :Q2, "First Year", value: "First Year" %>
+  <%= f.radio_button :Q2, "Second Year" %>
+  <%= f.label :Q2, "Second Year", value: "Second Year" %>
+  <%= f.radio_button :Q2, "Third Year" %>
+  <%= f.label :Q2, "Third Year", value: "Third Year" %>
+  <%= f.radio_button :Q2, "Fourth Year" %>
+  <%= f.label :Q2, "Fourth Year", value: "Fourth Year" %>
+</div>
+
+<div class="gpa_field">
+  <%=@arr_questions[3]%><br/>
+    <%= f.text_field :Q3 %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[4]%><br/>
+  <%= f.radio_button :Q4, "High" %>
+  <%= f.label :Q4, "High", value: "High" %>
+  <%= f.radio_button :Q4, "Average" %>
+  <%= f.label :Q4, "Average", value: "Average" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[5]%><br/>
+  <%= f.radio_button :Q5, "Participated and Prepared" %>
+  <%= f.label :Q5, "Participated and Prepared", value: "Participated and Prepared" %>
+  <%= f.radio_button :Q5, "Not Participated" %>
+  <%= f.label :Q5, "Not Participated", value: "Not Participated" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[6]%><br/>
+  <%= f.radio_button :Q6, "Yes" %>
+  <%= f.label :Q6, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q6, "No" %>
+  <%= f.label :Q6, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+ <h3>Have you been "extensively" involved in the following?</h3>
+  <%=@arr_questions[7]%><br/>
+  <%= f.radio_button :Q7, "Yes" %>
+  <%= f.label :Q7, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q7, "No" %>
+  <%= f.label :Q7, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[8]%><br/>
+  <%= f.radio_button :Q8, "Yes" %>
+  <%= f.label :Q8, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q8, "No" %>
+  <%= f.label :Q8, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[9]%><br/>
+  <%= f.radio_button :Q9, "Yes" %>
+  <%= f.label :Q9, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q9, "No" %>
+  <%= f.label :Q9, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[10]%><br/>
+  <%= f.radio_button :Q10, "Yes" %>
+  <%= f.label :Q10, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q10, "No" %>
+  <%= f.label :Q10, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[11]%><br/>
+  <%= f.radio_button :Q11, "Yes" %>
+  <%= f.label :Q11, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q11, "No" %>
+  <%= f.label :Q11, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[12]%><br/>
+  <%= f.radio_button :Q12, "Yes" %>
+  <%= f.label :Q12, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q12, "No" %>
+  <%= f.label :Q12, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[13]%><br/>
+  <%= f.radio_button :Q13, "Management Studies (IIM, CAT Exam etc)" %>
+  <%= f.label :Q13, "Management Studies (IIM, CAT Exam etc)", value: "Management Studies (IIM, CAT Exam etc)" %>
+  <%= f.radio_button :Q13, "Masters in foreign country (US, Canada etc.)" %>
+  <%= f.label :Q13, "Masters in foreign country (US, Canada etc.)", value: "Masters in foreign country (US, Canada etc.)" %>
+  <%= f.radio_button :Q13, "Masters in India (MTech, GATE etc.)" %>
+  <%= f.label :Q13, "Masters in India (MTech, GATE etc.)", value: "Masters in India (MTech, GATE etc.)" %>
+  <%= f.radio_button :Q13, "Job in technical domain (Software Developer, Data Scientist etc.)" %>
+  <%= f.label :Q13, "Job in technical domain (Software Developer, Data Scientist etc.)", value: "Job in technical domain (Software Developer, Data Scientist etc.)" %>
+  <%= f.radio_button :Q13, "Job in non-technical domain (Organizational/Managerial/Content Writing/Business/Finance position etc.)" %>
+  <%= f.label :Q13, "Job in non-technical domain (Organizational/Managerial/Content Writing/Business/Finance position etc.)", value: "Job in non-technical domain (Organizational/Managerial/Content Writing/Business/Finance position etc.)" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[14]%><br/>
+  <%= f.radio_button :Q14, "Yes" %>
+  <%= f.label :Q14, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q14, "No" %>
+  <%= f.label :Q14, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[15]%><br/>
+  <%= f.radio_button :Q15, "Yes" %>
+  <%= f.label :Q15, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q15, "No" %>
+  <%= f.label :Q15, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[16]%><br/>
+  <%= f.radio_button :Q16, "Yes - Almost every time" %>
+  <%= f.label :Q16, "Yes - Almost every time", value: "Yes - Almost every time" %>
+  <%= f.radio_button :Q16, "No - I do NOT ask questions or I prefer to look at the topic on my own" %>
+  <%= f.label :Q16, "No - I do NOT ask questions or I prefer to look at the topic on my own", value: "No - I do NOT ask questions or I prefer to look at the topic on my own" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[17]%><br/>
+  <%= f.radio_button :Q17, "I ask multiple questions until the topic is clarified." %>
+  <%= f.label :Q17, "I ask multiple questions until the topic is clarified.", value: "I ask multiple questions until the topic is clarified." %>
+  <%= f.radio_button :Q17, "I leave the topic to look at it later on." %>
+  <%= f.label :Q17, "I leave the topic to look at it later on.", value: "I leave the topic to look at it later on." %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[18]%><br/>
+  <%= f.radio_button :Q18, "I get back to the particular topic as soon as possible/as and when I get home" %>
+  <%= f.label :Q18, "I get back to the particular topic as soon as possible/as and when I get home", value: "I get back to the particular topic as soon as possible/as and when I get home" %>
+  <%= f.radio_button :Q18, "I leave the topic and look at during examinations" %>
+  <%= f.label :Q18, "I leave the topic and look at during examinations", value: "I leave the topic and look at during examinations" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[19]%><br/>
+  <%= f.radio_button :Q19, "I learn a topic to understand the core fundamentals/learn the topics outside the examination syllabus for better understanding" %>
+  <%= f.label :Q19, "I learn a topic to understand the core fundamentals/learn the topics outside the examination syllabus for better understanding", value: "I learn a topic to understand the core fundamentals/learn the topics outside the examination syllabus for better understanding" %>
+  <%= f.radio_button :Q19, "I learn a topic only to score marks in college/university examination" %>
+  <%= f.label :Q19, "I learn a topic only to score marks in college/university examination", value: "I learn a topic only to score marks in college/university examination" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[20]%><br/>
+  <%= f.radio_button :Q20, "Understanding the syllabus even if it would result in spending more time" %>
+  <%= f.label :Q20, "Understanding the syllabus even if it would result in spending more time", value: "Understanding the syllabus even if it would result in spending more time" %>
+  <%= f.radio_button :Q20, "Short term memorization of syllabus just to spend lesser time" %>
+  <%= f.label :Q20, "Short term memorization of syllabus just to spend lesser time", value: "Short term memorization of syllabus just to spend lesser time" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[21]%><br/>
+  <%= f.radio_button :Q21, "Well before examinations to understand the topic better" %>
+  <%= f.label :Q21, "Well before examinations to understand the topic better", value: "Well before examinations to understand the topic better" %>
+  <%= f.radio_button :Q21, "When exams are around the corner by just focusing on the given syllabus" %>
+  <%= f.label :Q21, "When exams are around the corner by just focusing on the given syllabus", value: "When exams are around the corner by just focusing on the given syllabus" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[22]%><br/>
+  <%= f.radio_button :Q22, "I prefer detailed study of curriculum as well as the required background knowledge" %>
+  <%= f.label :Q22, "I prefer detailed study of curriculum as well as the required background knowledge", value: "I prefer detailed study of curriculum as well as the required background knowledge" %>
+  <%= f.radio_button :Q22, "I study topics that are limited to the examination curriculum irrespective of my understanding of the topic" %>
+  <%= f.label :Q22, "I study topics that are limited to the examination curriculum irrespective of my understanding of the topic", value: "I study topics that are limited to the examination curriculum irrespective of my understanding of the topic" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[23]%><br/>
+  <%= f.radio_button :Q23, "Yes" %>
+  <%= f.label :Q23, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q23, "No" %>
+  <%= f.label :Q23, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[24]%><br/>
+  <%= f.radio_button :Q24, "Yes" %>
+  <%= f.label :Q24, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q24, "No" %>
+  <%= f.label :Q24, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+
+  <%=@arr_questions[25]%><br/>
+  <%= f.radio_button :Q25, "No" %>
+  <%= f.label :Q25, "No", value: "No" %>
+  <%= f.radio_button :Q25, "Yes" %>
+  <%= f.label :Q25, "Yes", value: "Yes" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[26]%><br/>
+  <%= f.radio_button :Q26, "Try again to understand the topic from multiple sources" %>
+  <%= f.label :Q26, "Try again to understand the topic from multiple sources", value: "Try again to understand the topic from multiple sources" %>
+  <%= f.radio_button :Q26, "Memorize the topic and its contents OR Leave it" %>
+  <%= f.label :Q26, "Memorize the topic and its contents OR Leave it", value: "Memorize the topic and its contents OR Leave it" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[27]%><br/>
+  <%= f.radio_button :Q27, "No" %>
+  <%= f.label :Q27, "No", value: "No" %>
+  <%= f.radio_button :Q27, "Yes" %>
+  <%= f.label :Q27, "Yes", value: "Yes" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[28]%><br/>
+  <%= f.radio_button :Q28, "it Underestimates my knowledge" %>
+  <%= f.label :Q28, "it Underestimates my knowledge", value: "it Underestimates my knowledge" %>
+  <%= f.radio_button :Q28, "is Apt or Overestimates my knowledge" %>
+  <%= f.label :Q28, "is Apt or Overestimates my knowledge", value: "is Apt or Overestimates my knowledge" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[29]%><br/>
+  <%= f.radio_button :Q29, "it Underestimates my efforts" %>
+  <%= f.label :Q29, "it Underestimates my efforts", value: "it Underestimates my efforts" %>
+  <%= f.radio_button :Q29, "is Apt or Overestimates my efforts" %>
+  <%= f.label :Q29, "is Apt or Overestimates my efforts", value: "is Apt or Overestimates my efforts" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[30]%><br/>
+  <%= f.radio_button :Q30, "Start to learn and implement making the project" %>
+  <%= f.label :Q30, "Start to learn and implement making the project", value: "Start to learn and implement making the project" %>
+  <%= f.radio_button :Q30, "Delay the project and postpone it to some other time" %>
+  <%= f.label :Q30, "Delay the project and postpone it to some other time", value: "Delay the project and postpone it to some other time" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[31]%><br/>
+  <%= f.radio_button :Q31, "Yes" %>
+  <%= f.label :Q31, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q31, "No/Average performance" %>
+  <%= f.label :Q31, "No/Average performance", value: "No/Average performance" %>
+</div>
+
+<div class="mcq_field">
+<h3>Are you proficient in the following?</h3>
+  <%=@arr_questions[32]%><br/>
+  <%= f.radio_button :Q32, "Yes" %>
+  <%= f.label :Q32, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q32, "No" %>
+  <%= f.label :Q32, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[33]%><br/>
+  <%= f.radio_button :Q33, "Yes" %>
+  <%= f.label :Q33, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q33, "No" %>
+  <%= f.label :Q33, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[34]%><br/>
+  <%= f.radio_button :Q34, "Yes" %>
+  <%= f.label :Q34, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q34, "No" %>
+  <%= f.label :Q34, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[35]%><br/>
+  <%= f.radio_button :Q35, "Yes" %>
+  <%= f.label :Q35, "Yes", value: "Yes" %>
+  <%= f.radio_button :Q35, "No" %>
+  <%= f.label :Q35, "No", value: "No" %>
+</div>
+
+<div class="mcq_field">
+<h3>Provide your preference for the following methods of learning </h3>
+  <%=@arr_questions[36]%><br/>
+  <%= f.radio_button :Q36, "Prefer" %>
+  <%= f.label :Q36, "Prefer", value: "Prefer" %>
+  <%= f.radio_button :Q36, "Do not prefer" %>
+  <%= f.label :Q36, "Do not prefer", value: "Do not prefer" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[37]%><br/>
+  <%= f.radio_button :Q37, "Prefer" %>
+  <%= f.label :Q37, "Prefer", value: "Prefer" %>
+  <%= f.radio_button :Q37, "Do not prefer" %>
+  <%= f.label :Q37, "Do not prefer", value: "Do not prefer" %>
+</div>
+
+<div class="mcq_field">
+  <%=@arr_questions[38]%><br/>
+  <%= f.radio_button :Q38, "Prefer" %>
+  <%= f.label :Q38, "Prefer", value: "Prefer" %>
+  <%= f.radio_button :Q38, "Do not prefer" %>
+  <%= f.label :Q38, "Do not prefer", value: "Do not prefer" %>
+</div>
+
+  <%= f.submit "Submit form" %>
+<% end  %>
