@@ -1,35 +1,9 @@
-<%= @name %> <br>
-<%= @email %> <br>
 <% if current_user.role.to_i == 0%>
-  <%= @student_class %> <br>
 <% else %>
   <%= @subject %> <br>
 <% end %>
 <% if current_user.role.to_i == 0 %>
-  <div>
-    My Attributes: <br />
-    Aptitude: <%= @attr_val[0] %><br />
-    Independent Studies: <%= @attr_val[1] %><br />
-    Interest: <%= @attr_val[2] %><br />
-    Theory Knowledge: <%= @attr_val[3] %><br />
-    Practical Knowledge: <%= @attr_val[4] %><br />
-    Seriousness: <%= @attr_val[5] %><br />
-    Hardwork: <%= @attr_val[6] %><br />
-    Retention: <%= @attr_val[7] %><br />
-    Extra Curricular: <%= @attr_val[8] %><br />
-  </div>
-
-  <%= link_to 'Feedback', '/dashboard/feedback',  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary btn'}  %>
-  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content"></div>
-    </div>
-  </div>
-  <div>
-    <% for i in @comments %>
-      <%= i %><br />
-    <% end %>
-  </div>
+  <%=render :partial => 'student_dashboard' %>
 <% else %>
 <%= link_to 'BE1', dashboard_teacher_path(:student_class => 'BE1'),  { :remote => true, 'data-target' => '#pie_chart', class: 'btn btn-primary btn' }  %>
 <%= link_to 'BE2', dashboard_teacher_path(:student_class => 'BE2'),  { :remote => true, 'data-target' => '#pie_chart', class: 'btn btn-primary btn' }  %>
@@ -49,5 +23,5 @@
     <%=i.description%>
   <% end %>
 </div>
+<%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
 <% end %>
-<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>

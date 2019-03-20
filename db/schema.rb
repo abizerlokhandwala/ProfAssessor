@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190319221439) do
+ActiveRecord::Schema.define(version: 20190320105334) do
 
   create_table "clusters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "description"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20190319221439) do
     t.string "attr_clusters"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "clusters_id"
-    t.index ["clusters_id"], name: "index_student_attributes_on_clusters_id"
+    t.bigint "cluster_id"
+    t.index ["cluster_id"], name: "index_student_attributes_on_cluster_id"
     t.index ["user_id"], name: "index_student_attributes_on_user_id"
   end
 
@@ -55,6 +55,6 @@ ActiveRecord::Schema.define(version: 20190319221439) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "student_attributes", "clusters", column: "clusters_id", on_delete: :cascade
+  add_foreign_key "student_attributes", "clusters"
   add_foreign_key "student_attributes", "users", on_delete: :cascade
 end

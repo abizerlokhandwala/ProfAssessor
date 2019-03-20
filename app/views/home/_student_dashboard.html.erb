@@ -1,0 +1,373 @@
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<!--Responsive Meta Tag-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<!-- <link rel="stylesheet" href="style.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!--Import jQuery Library-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!--Import materialize.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- <script type="text/javascript" src="progressbar.js"></script> -->
+<body>
+<main>
+<!-- Top container -->
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper" style="background-color:#121B2C">
+      <a href="https://www.pict.edu" class="brand-logo center"><img class="circle" src="/images/pict.jpg" style="width:30%"></a>
+      <a href="#" class="brand-logo right" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;margin-right:10px'>ProfAssessor</a>
+      <a href="#!" data-target="sidenav-left" class="sidenav-trigger left"><i class="material-icons black-text">menu</i></a>
+    </div>
+  </nav>
+</div>
+
+<!-- Sidebar/menu -->
+<div class="row Pad_top">
+    <div class="container" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'>
+      <ul id="sidenav-left" class="sidenav sidenav-fixed" style="background-color:#121B2C">
+        <li>
+        <div class="user-view">
+          <a href="#user"><img class="circle" src="/images/IMG.jpg"></a>
+          <a href="#name"><span class="white-text name" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'><%=@name.capitalize%></span></a>
+        </div>
+        </li>
+        <li><a href="/dashboard" class="logo-container white-text">Dashboard<i class="material-icons left white-text">spa</i></a></li>
+        <li><a class="waves-effect white-text" href="courses.html"><i class="material-icons white-text">code</i>Courses</a></li>
+        <li><%= link_to '<i class="material-icons white-text">flare</i>Sign Out'.html_safe, destroy_user_session_path, :method => :delete, :class => "waves-effect white-text" %></li>
+      </ul>
+    </div>
+</div>
+
+<!-- !PAGE CONTENT! -->
+<div class="container" style="margin-left:28%;margin-top:4%;">
+  <div style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;margin-left:1%'>
+  <h3>Attributes</h3>
+  </div>
+
+  <div class="row">
+  <div class="col s6" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'>
+    <p>Aptitude</p>
+    <div id="bar1"></div>
+
+    <p>Independent Studies</p>
+    <div id="bar2"></div>
+
+    <p>Interest</p>
+    <div id="bar3"></div>
+
+    <p>Theoretical Knowledge</p>
+    <div id="bar4"></div>
+  </div>
+  <div class="col s6">
+    <p>Practical Knowledge</p>
+    <div id="bar5"></div>
+
+    <p>Seriousness</p>
+    <div id="bar6"></div>
+
+    <p>Hardwork</p>
+    <div id="bar7"></div>
+
+    <p>Retention</p>
+    <div id="bar8"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col s6 offset-s3">
+    <p>Extra Curricular</p>
+    <div id="bar9"></div>
+  </div>
+</div>
+<br>
+    <h3 style='font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'>Tips</h3>
+    <div class="row">
+      <div class="col l5 z-depth-1" style="margin-right:20px;height:200px;border-radius:20px;">
+        <div class="col l6" style="font-size:85px;">
+          <p style="margin:20% 0px 0px 0px;color:#03a9f4">75%</p>
+        </div>
+        <div class="col l6">
+          <p style="padding-top:20%"><%=@comments[0]%></p>
+        </div>
+      </div>
+      <div class="col l5 z-depth-1" style="height:200px;border-radius:20px;">
+        <div class="col l6" style="font-size:85px;">
+          <p style="margin:20% 0px 0px 0px;color:#8bc34a">75%</p>
+        </div>
+        <div class="col l6">
+          <p style="padding-top:20%"><%=@comments[1]%></p>
+        </div>
+      </div>
+    </div>
+      <div class="row">
+      <div class="col l5 z-depth-1" style="margin-right:20px;height:200px;border-radius:20px;">
+        <div class="col l6" style="font-size:85px;">
+          <p style="margin:20% 0px 0px 0px;color:#fb8c00">75%</p>
+        </div>
+        <div class="col l6">
+          <p style="padding-top:20%"><%=@comments[2]%></p>
+        </div>
+      </div>
+      <div class="col l5 z-depth-1" style="height:200px;border-radius:20px;">
+        <div class="col l6" style="font-size:85px;">
+          <p style="margin:20% 0px 0px 0px;color:#01579b">75%</p>
+        </div>
+        <div class="col l6">
+          <p style="padding-top:20%"><%=@comments[3]%></p>
+        </div>
+      </div>
+    </div>
+  <br>
+</div>
+</main>
+  <!-- Footer -->
+  <footer class="page-footer" style="background-color:#121B2C;margin-bottom:-30px;">
+          <div class="container" style="text-align:center">
+            <div class="row">
+              <div class="col offset-s2" >
+                <p class="grey-text text-lighten-4">Not satisfied by your attributes?</p>
+                <button data-target="modal1" class="btn modal-trigger waves-effect">Feedback</button>
+              </div>
+              <%#= link_to 'Feedback', '/dashboard/feedback',  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-primary btn'}  %>
+              <!-- <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content"></div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </footer>
+
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <form method="post" action="abizer-ka.kaam">
+        <p class="range-field">
+          Aptitude:
+          <input type="range" id="silder1" min="0" max="100" />
+        </p>
+        <p class="range-field">
+          Independent Studies:
+          <input type="range" id="silder2" min="0" max="100" />
+        </p>
+        <p class="range-field">
+          Interest:
+          <input type="range" id="silder3" min="0" max="100" />
+        </p>
+        <p class="range-field">
+          Theoretical Knowledge:
+          <input type="range" id="silder4" min="0" max="100" />
+        </p>
+        <p class="range-field">
+          Practical Knowledge:
+          <input type="range" id="silder5" min="0" max="100" />
+        </p>
+        <p class="range-field">
+          Seriousness:
+          <input type="range" id="silder6" min="0" max="100" />
+        </p>
+        <p class="range-field">
+          Hardwork:
+          <input type="range" id="silder7" min="0" max="100" />
+        </p>
+        <p class="range-field">
+          Retention:
+          <input type="range" id="silder8" min="0" max="100" />
+        </p>
+        <p class="range-field">
+          Extra Curricular:
+          <input type="range" id="silder9" min="0" max="100" />
+        </p>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </form>
+    </div>
+  </div>
+<!-- End page content -->
+
+
+<script type="text/javascript">
+//sidebar init
+$(document).ready(function(){
+  $('.sidenav').sidenav();
+});
+//modal init
+$(document).ready(function(){
+    $('.modal').modal();
+});
+//range init
+M.Range.init($('input[type=range]'));
+// progressbar.js@1.0.0 version is used
+// Docs: http://progressbarjs.readthedocs.org/en/1.0.0/
+
+var b1 = new ProgressBar.Line(bar1, {
+  strokeWidth: 3,
+  easing: 'easeInOut',
+  duration: 1400,
+  color: '#f44336',
+  trailColor: '#eee',
+  trailWidth: 10,
+  svgStyle: {width: '90%', height: '100%'},
+  from: {color: '#b3e5fc'},
+  to: {color: '#01579b'},
+  step: (state, b1) => {
+    b1.path.setAttribute('stroke', state.color);
+  }
+});
+b1.animate(<%= @attr_val[0] %>);  // Number from 0.0 to 1.0
+
+var b2 = new ProgressBar.Line(bar2, {
+  strokeWidth: 3,
+  easing: 'easeInOut',
+  duration: 1400,
+  color: '#f44336',
+  trailColor: '#eee',
+  trailWidth: 10,
+  svgStyle: {width: '90%', height: '100%'},
+  from: {color: '#b3e5fc'},
+  to: {color: '#01579b'},
+  step: (state, b2) => {
+    b2.path.setAttribute('stroke', state.color);
+  }
+});
+b2.animate(<%= @attr_val[1] %>);  // Number from 0.0 to 1.0
+
+var b3 = new ProgressBar.Line(bar3, {
+  strokeWidth: 3,
+  easing: 'easeInOut',
+  duration: 1400,
+  color: '#f44336',
+  trailColor: '#eee',
+  trailWidth: 10,
+  svgStyle: {width: '90%', height: '100%'},
+  from: {color: '#b3e5fc'},
+  to: {color: '#01579b'},
+  step: (state, b3) => {
+    b3.path.setAttribute('stroke', state.color);
+  }
+});
+b3.animate(<%= @attr_val[2] %>);  // Number from 0.0 to 1.0
+
+var b4 = new ProgressBar.Line(bar4, {
+  strokeWidth: 3,
+  easing: 'easeInOut',
+  duration: 1400,
+  color: '#f44336',
+  trailColor: '#eee',
+  trailWidth: 10,
+  svgStyle: {width: '90%', height: '100%'},
+  from: {color: '#b3e5fc'},
+  to: {color: '#01579b'},
+  step: (state, b4) => {
+    b4.path.setAttribute('stroke', state.color);
+  }
+});
+b4.animate(<%= @attr_val[3] %>);  // Number from 0.0 to 1.0
+
+var b5 = new ProgressBar.Line(bar5, {
+  strokeWidth: 3,
+  easing: 'easeInOut',
+  duration: 1400,
+  color: '#f44336',
+  trailColor: '#eee',
+  trailWidth: 10,
+  svgStyle: {width: '90%', height: '100%'},
+  from: {color: '#b3e5fc'},
+  to: {color: '#01579b'},
+  step: (state, b5) => {
+    b5.path.setAttribute('stroke', state.color);
+  }
+});
+b5.animate(<%= @attr_val[4] %>);  // Number from 0.0 to 1.0
+
+var b6 = new ProgressBar.Line(bar6, {
+  strokeWidth: 3,
+  easing: 'easeInOut',
+  duration: 1400,
+  color: '#f44336',
+  trailColor: '#eee',
+  trailWidth: 10,
+  svgStyle: {width: '90%', height: '100%'},
+  from: {color: '#b3e5fc'},
+  to: {color: '#01579b'},
+  step: (state, b6) => {
+    b6.path.setAttribute('stroke', state.color);
+  }
+});
+b6.animate(<%= @attr_val[5] %>);  // Number from 0.0 to 1.0
+
+var b7 = new ProgressBar.Line(bar7, {
+  strokeWidth: 3,
+  easing: 'easeInOut',
+  duration: 1400,
+  color: '#f44336',
+  trailColor: '#eee',
+  trailWidth: 10,
+  svgStyle: {width: '90%', height: '100%'},
+  from: {color: '#b3e5fc'},
+  to: {color: '#01579b'},
+  step: (state, b7) => {
+    b7.path.setAttribute('stroke', state.color);
+  }
+});
+b7.animate(<%= @attr_val[6] %>);  // Number from 0.0 to 1.0
+
+var b8 = new ProgressBar.Line(bar8, {
+  strokeWidth: 3,
+  easing: 'easeInOut',
+  duration: 1400,
+  color: '#f44336',
+  trailColor: '#eee',
+  trailWidth: 10,
+  svgStyle: {width: '90%', height: '100%'},
+  from: {color: '#b3e5fc'},
+  to: {color: '#01579b'},
+  step: (state, b8) => {
+    b8.path.setAttribute('stroke', state.color);
+  }
+});
+b8.animate(<%= @attr_val[7] %>);  // Number from 0.0 to 1.0
+
+var b9 = new ProgressBar.Line(bar9, {
+  strokeWidth: 3,
+  easing: 'easeInOut',
+  duration: 1400,
+  color: '#f44336',
+  trailColor: '#eee',
+  trailWidth: 10,
+  svgStyle: {width: '60%', height: '100%'},
+  from: {color: '#b3e5fc'},
+  to: {color: '#01579b'},
+  step: (state, b9) => {
+    b9.path.setAttribute('stroke', state.color);
+  }
+});
+b9.animate(<%= @attr_val[8] %>);  // Number from 0.0 to 1.0
+</script>
+
+</body>
+<style type="text/css">
+#container {
+  margin: 20px;
+  width: 400px;
+  height: 8px;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
+</style>
+
+</html>

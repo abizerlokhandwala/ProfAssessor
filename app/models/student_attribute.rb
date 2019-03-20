@@ -20,8 +20,9 @@ class StudentAttribute < ApplicationRecord
     my_score_std = []
     for i in (0...@@arr.size)
       my_score = get_attribute_score(i)
-      max_score = StudentAttribute.get_attribute_score_max(i)
-      my_score = (my_score) / (max_score)
+      max_score = 3
+      min_score = 1
+      my_score = (my_score-min_score) / (max_score-min_score)
       my_score_std << my_score
     end
     my_score_std
@@ -90,10 +91,22 @@ class StudentAttribute < ApplicationRecord
     for i in (1..Cluster.all.count)
       temp = Hash.new
       temp["label"] = "Cluster "+i.to_s
-      temp["count"] = all_students.where("clusters_id = ?", i).count
+      temp["count"] = all_students.where("cluster_id = ?", i).count
       data << temp
     end
     data
+  end
+
+  def self.student_after_clustering(result, my_id)
+    attributes = result["student_attribute_levels"]
+    attributes = JSON.parse(attributes)
+    # p StudentAttribute.find_by_user_id(my_id)
+    if(StudentAttribute.find_by_user_id(my_id)) then
+      p "Already Exists"
+    else
+      p "Inserting student"
+      StudentAttribute.create!(user_id: my_id, cluster_id: (1+result["student_final_cluster"].to_i), aptitude: attributes[0], indep_stud: attributes[1], interest: attributes[2], theory_knowledge: attributes[3], prac_knowledge: attributes[4], seriousness: attributes[5], hardwork: attributes[6], retention: attributes[7], extra_curr: attributes[8], attr_clusters: "123" ).save
+    end
   end
 
 end

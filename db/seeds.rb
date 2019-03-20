@@ -46,6 +46,18 @@ end
 
 # for i in (1..11)
 #   lol = StudentAttribute.find(i)
-#   lol.clusters_id = rand(1..5)
+#   lol.cluster_id = rand(1..5)
 #   lol.save
 # end
+
+all_users = `python3 lib/assets/final_codes/cluster_user_all.py`
+all_users_array = all_users.split("#")
+cnt = 1
+for i in all_users_array
+  lol = JSON.parse(i)
+  attributes = JSON.parse(lol["student_attribute_levels"])
+  # puts attributes[0]
+  User.create!(id: cnt,email: lol["email"].to_s, password: "pict123", fname: lol["email"].split("@")[0], lname: rand_name, student_class: "BE"+rand(1..3).to_s, dob: "2000-10-10", role: 0).save
+  StudentAttribute.create!(user_id: cnt, aptitude: attributes[0], indep_stud: attributes[1], interest: attributes[2], theory_knowledge: attributes[3], prac_knowledge: attributes[4], seriousness: attributes[5], hardwork: attributes[6], retention: attributes[7], extra_curr: attributes[8], attr_clusters: "123", cluster_id: 1+lol["student_final_cluster"].to_i).save
+  cnt+=1
+end
