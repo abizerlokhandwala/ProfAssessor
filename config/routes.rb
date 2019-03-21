@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post '/after_test', to: 'home#after_test'
   get '/dashboard/feedback', to: 'home#feedback'
   get '/dashboard/teacher', to: 'home#teacher'
+  get '/dashboard/all_group_details', to: 'home#all_group_details'
 end

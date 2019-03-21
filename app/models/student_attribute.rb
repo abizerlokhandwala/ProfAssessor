@@ -20,8 +20,10 @@ class StudentAttribute < ApplicationRecord
     my_score_std = []
     for i in (0...@@arr.size)
       my_score = get_attribute_score(i)
-      max_score = 3
-      min_score = 1
+      max_score = StudentAttribute.get_attribute_score_max(i)
+      # max_score = 3
+      # min_score = 1
+      min_score = StudentAttribute.get_attribute_score_min(i)
       my_score = (my_score-min_score) / (max_score-min_score)
       my_score_std << my_score
     end
@@ -50,35 +52,45 @@ class StudentAttribute < ApplicationRecord
     total = StudentAttribute.where("user_id in (?)",users_class_id).count
 
     if apti<total/2 then
-      comments << "You're Aptitude is better than #{100*(total-apti)/total}% of your class! Keep it up!"
+      comments << "Your Aptitude is better than #{100*(total-apti)/total}% of your class! Keep it up!"
+      comments << "#{100*(total-apti)/total}"
     else
       comments << "#{100*apti/total}% of your class has better Aptitude than you, work on it!"
+      comments << "#{100*apti/total}"
     end
 
     if hardwork<total/2 then
       comments << "You're more hardworking than #{100*(total-hardwork)/total}% of your class! Keep it up!"
+      comments << "#{100*(total-hardwork)/total}"
     else
       comments << "#{100*hardwork/total}% of the class puts in more hardwork than you do, work on it!"
+      comments << "#{100*hardwork/total}"
     end
 
     if indep<total/2 then
       if combined_knowledge<total/2 then
         comments << "You're Technical Knowledge is greater than #{100*(total-combined_knowledge)/total}% of your class! Don't stop now though, keep the hardwork consistent to keep the lead!"
+        comments << "#{100*(total-combined_knowledge)/total}"
       else
         comments << "#{100*combined_knowledge/total}% of your class is technically smarter than you, but you can bridge that gap by consistently working towards your goal, dont give up!"
+        comments << "#{100*combined_knowledge/total}"
       end
     else
       if combined_knowledge<total/2 then
-        comments << "You're Technical Knowledge is greater than #{100*(total-combined_knowledge)/total}% of your class, but you can do even better if you start to consistently study and take efforts on your own, you can be the best!"
+        comments << "Your Technical Knowledge is greater than #{100*(total-combined_knowledge)/total}% of your class, but you can do even better if you start to consistently study and take efforts on your own, you can be the best!"
+        comments << "#{100*(total-combined_knowledge)/total}"
       else
         comments << "#{100*combined_knowledge/total}% of your class studies more than you, and hence score better. You can be one of them too, bridge that gap by consistently working towards your goal, dont give up!"
+        comments << "#{100*combined_knowledge/total}"
       end
     end
 
     if extra_curr<total/2 then
       comments << "You're part of the top #{100*(extra_curr)/total}% of your class who are into extra curricular activities! Keep it up!"
+      comments << "#{100*(extra_curr)/total}"
     else
       comments << "#{100*extra_curr/total}% of your class is into activities apart from class studies, all work no play makes jack a dull boy!"
+      comments << "#{100*extra_curr/total}"
     end
 
     comments
@@ -89,12 +101,9 @@ class StudentAttribute < ApplicationRecord
     all_students = StudentAttribute.where("user_id in (?)",users_class_id)
     data = Array.new
     for i in (1..Cluster.all.count)
-      temp = Hash.new
-      temp["label"] = "Cluster "+i.to_s
-      temp["count"] = all_students.where("cluster_id = ?", i).count
-      data << temp
+       data << all_students.where("cluster_id = ?", i).count
     end
-    data
+    return data, all_students
   end
 
   def self.student_after_clustering(result, my_id)

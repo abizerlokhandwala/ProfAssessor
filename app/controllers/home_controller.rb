@@ -9,16 +9,16 @@ class HomeController < ApplicationController
       @attr_val = current_user.student_attribute.get_all_attribute_score_std
       @comments = current_user.student_attribute.get_comments
     else  #else teacher
-      @name = current_user.fname+" "+current_user.lname
-      @email = current_user.email
-      @subject = current_user.subject
-      @cluster_details = Cluster.all
+      redirect_to '/dashboard/teacher'
     end
   end
 
   def init_test
     if current_user.role.to_i==0 then
       @arr_questions = ["College Name?","Current Branch?","Current Year?","What is your Grade in College (GPA)?","How would you rate your puzzle solving efficiency?","Have you prepared for any olympiads/national level competitive examinations in your school days?","Have you actively participated in activities like chess or abacus etc?","Have you been \"extensively\" involved in the following? [Competitive Coding]","Have you been \"extensively\" involved in the following? [Sodtware Development]","Have you been \"extensively\" involved in the following? [ML/AI Projects or Research]","Have you been \"extensively\" involved in the following? [Mathematics and Logical Reasoning]","Have you been \"extensively\" involved in the following? [Social Activities (College Fest Organization or similar managerial or club activities)]","Have you been \"extensively\" involved in the following? [Literature/Blogging ]","What are your plans after your undergraduation?","Are you attentive during lectures at college?","Do you feel the lectures are slow paced or repetitive in general?","Do you ask questions to the professor, if you do not understand a particular concept during the lecture?","What do you do if you are not satisfied with the answer given by the professor? ","What do you do if you are not satisfied with a topic in lecture?","What is your study pattern in general?","What would you prefer during exams to score good marks?","When do you prefer to study?","How do you prefer to study for your university examinations?","Do you seriously perform college practical assignments and projects?","Would you do a particular task seriously even if you are not interested?","Would you put off a task if the deadline is not near","If you don’t understand a particular topic in the curriculum what do you prefer?","Do you feel a need to revise a theoretical topic learnt 2 days before?","How well do you think your GPA justifies your technical knowledge?","How well do you think your GPA justifies the amount of efforts you put in?","If you had an idea for a technical project, would you:","If you had an exam tomorrow, of a subject not of your interest, would you study hard to maintain a good score?","Are you proficient in the following? [Object Oriented Programming Concepts]","Are you proficient in the following? [C/C++]","Are you proficient in the following? [JAVA]","Are you proficient in the following? [Python]","Provide your preference for the following methods of learning [Books/Textual info on the Internet]","Provide your preference for the following methods of learning [Online courses/videos]","Provide your preference for the following methods of learning [Personalised classroom teaching (human)]"]
+
+      @name = current_user.fname+" "+current_user.lname
+      @email = current_user.email
 
       render 'init_test'
     else
@@ -52,9 +52,18 @@ class HomeController < ApplicationController
   end
 
   def teacher
-    student_class = params[:student_class]
-    @data = StudentAttribute.get_pie_data(student_class)
-    render :js => "pie_chart_func(#{@data.to_json});"
+    @student_class = params[:student_class]
+    if @student_class.nil? then
+      @student_class = "BE1"
+    end
+    @name = current_user.fname+" "+current_user.lname
+    @email = current_user.email
+    @subject = current_user.subject
+    @cluster_details = Cluster.all
+    @data, @all_students = StudentAttribute.get_pie_data(@student_class)
+    # puts @all_students[0].user.email
+    
+    render 'dashboard'
   end
 
 end

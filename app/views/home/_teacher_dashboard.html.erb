@@ -1,0 +1,383 @@
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<!--Responsive Meta Tag-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<!-- <link rel="stylesheet" href="style.css"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!--Import jQuery Library-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!--Import materialize.js-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- <script type="text/javascript" src="progressbar.js"></script> -->
+<body>
+<main>
+<!-- Top container -->
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper" style="background-color:#121B2C">
+      <a href="https://www.pict.edu" class="brand-logo center"><img class="circle" src="/images/pict.jpg" style="width:30%"></a>
+      <a href="#" class="brand-logo right" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;margin-right:10px'>ProfAssessor</a>
+      <a href="#!" data-target="sidenav-left" class="sidenav-trigger left"><i class="material-icons black-text">menu</i></a>
+    </div>
+  </nav>
+</div>
+
+<!-- Sidebar/menu -->
+<div class="row Pad_top">
+    <div class="container" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'>
+      <ul id="sidenav-left" class="sidenav sidenav-fixed" style="background-color:#121B2C">
+        <li>
+        <div class="user-view">
+          <a href="#user"><img class="circle" src="/images/IMG.png"></a>
+          <a href="#name"><span class="white-text name" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'><%=@name.capitalize%></span></a>
+        </div>
+        </li>
+        <li><a href="/dashboard" class="logo-container white-text">Dashboard<i class="material-icons left white-text">spa</i></a></li>
+        <li><a class="waves-effect white-text" href="courses.html"><i class="material-icons white-text">code</i>Courses</a></li>
+        <li><%= link_to '<i class="material-icons white-text">code</i>BE 1'.html_safe, dashboard_teacher_path(:student_class => 'BE1'), class: 'waves-effect white-text' %></li>
+        <li><%= link_to '<i class="material-icons white-text">code</i>BE 2'.html_safe, dashboard_teacher_path(:student_class => 'BE2'), class: 'waves-effect white-text' %></li>
+        <li><%= link_to '<i class="material-icons white-text">code</i>BE 3'.html_safe, dashboard_teacher_path(:student_class => 'BE3'), class: 'waves-effect white-text' %></li>
+        <li><%= link_to '<i class="material-icons white-text">flare</i>Sign Out'.html_safe, destroy_user_session_path, :method => :delete, :class => "waves-effect white-text" %></li>
+      </ul>
+    </div>
+</div>
+
+<!-- !PAGE CONTENT! -->
+<div class="container" style="margin-left:30%">
+  <div class="row">
+      <div class="col s11 z-depth-4" style="padding:0px">
+        <ul class="tabs">
+          <li class="tab col s4"><a class="active" href="#c1">Student Demographic</a></li>
+          <li class="tab col s4"><a href="#c2">Teach assist</a></li>
+        </ul>
+      <div id="c1" class="col s12" style="padding:5%">
+        <canvas id="pie1"></canvas>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col s12 z-depth-2" style="padding:3%">
+            <p style="font-size:30px">Analysis</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col l11">
+
+        <ul class="collapsible popout">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Group A</div>
+            <div class="collapsible-body">
+              <p>Description here</p>
+              <p>The following students from class <%=@student_class%> are part of Group A: </p>
+              <%if @all_students.present? then%>
+                <%@all_students.each do |i|%>
+                  <% if i.cluster_id==1 then%>
+                    <%=i.user.email%><br />
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Group B</div>
+            <div class="collapsible-body">
+              <p>Description here</p>
+              <p>The following students from class <%=@student_class%> are part of Group B: </p>
+              <%if @all_students.present? then%>
+                <%@all_students.each do |i|%>
+                  <% if i.cluster_id==2 then%>
+                    <%=i.user.email%><br />
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Group C</div>
+            <div class="collapsible-body">
+              <p>Description here</p>
+              <p>The following students from class <%=@student_class%> are part of Group C: </p>
+              <%if @all_students.present? then%>
+                <%@all_students.each do |i|%>
+                  <% if i.cluster_id==3 then%>
+                    <%=i.user.email%><br />
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Group D</div>
+            <div class="collapsible-body">
+              <p>Description here</p>
+              <p>The following students from class <%=@student_class%> are part of Group D: </p>
+              <%if @all_students.present? then%>
+                <%@all_students.each do |i|%>
+                  <% if i.cluster_id==4 then%>
+                    <%=i.user.email%><br />
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Group E</div>
+            <div class="collapsible-body">
+              <p>Description here</p>
+              <p>The following students from class <%=@student_class%> are part of Group E: </p>
+              <%if @all_students.present? then%>
+                <%@all_students.each do |i|%>
+                  <% if i.cluster_id==5 then%>
+                    <%=i.user.email%><br />
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      </div>
+      </div>
+      <div id="c2" class="col s12" style="padding:5%">
+        <canvas id="chart1" ></canvas>
+        <br>
+        <canvas id="chart2" ></canvas>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col s12 z-depth-1" style="padding:3%">
+            <p style="font-size:30px">Analysis</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col l11">
+<h6>Difficulty of each topic sorted in decreasing order of difficulty</h6>
+<br>
+        <ul class="collapsible popout">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 1</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 2</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 3</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 4</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 5</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 6</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 7</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 8</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 9</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 10</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 11</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 12</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 13</div>
+            <div class="collapsible-body">
+              <p>Abizerl123</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      </div>
+      </div>
+</div>
+</div>
+
+  </div>
+  <br>
+</main>
+
+<div id="mycontainer" style="display:none;">
+  <%=@data.to_json%>
+</div>
+
+  <!-- Footer -->
+<!-- End page content -->
+
+<script type="text/javascript">
+//init materialze elements
+M.AutoInit();
+//sidebar init
+$(document).ready(function(){
+  $('.sidenav').sidenav();
+});
+//range init
+M.Range.init($('input[type=range]'));
+//collapsible init
+var data = document.getElementById("mycontainer").innerHTML;
+data = JSON.parse(data);
+$(document).ready(function(){
+   $('.collapsible').collapsible();
+ });
+
+ var chart1 = document.getElementById('pie1').getContext('2d');
+ var myChart1 = new Chart(chart1, {
+     type: 'pie',
+     data: {
+       labels: ["Group 1","Group 2","Group 3","Group 4","Group 5"],
+         datasets: [{
+             label: 'Pie',
+             data: data,
+             backgroundColor: ["rgba(255, 99, 132)","rgba(255, 159, 64)","rgba(255, 205, 86)","rgba(75, 192, 192)","rgba(54, 162, 235)","rgba(153, 102, 255)"]
+         }]
+     }
+ });
+ var chart1 = document.getElementById('chart1').getContext('2d');
+ var myChart1 = new Chart(chart1, {
+     type: 'bar',
+     data: {
+       labels: ["Methods","Syntax","Applets","Streams","Threads","OOP","Exceptions","GUI","Objects","JDK","Arrays","Strings","Files"],
+         datasets: [{
+             label: 'Difficulty',
+             data: [0.2,0.23,0.15,0.3,0.2,0.23,0.15,0.3,0.2,0.23,0.15,0.3,0.2],
+             backgroundColor: ["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)"],
+             borderColor: ["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)","rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)"],
+             borderWidth: 1,
+             lineTension:0
+         }]
+     },
+     options: {
+         scales: {
+             yAxes: [{
+                 ticks: {
+                     beginAtZero: true
+                 }
+             }]
+         }
+     }
+ });
+ var chart2 = document.getElementById('chart2').getContext('2d');
+ var myChart2= new Chart(chart2, {
+     type: 'horizontalBar',
+     data: {
+       labels: ["Methods","Syntax","Applets","Streams","Threads","OOP","Exceptions","GUI","Objects","JDK","Arrays","Strings","Files"],
+         datasets: [{
+             label: 'Time to be spent',
+             data: [0.2,0.23,0.15,0.3,0.2,0.23,0.15,0.3,0.2,0.23,0.15,0.3,0.2],
+             backgroundColor: ["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)"],
+             borderColor: ["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)","rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)"],
+             borderWidth: 1,
+             lineTension:0
+         }]
+     },
+     options: {
+         scales: {
+             yAxes: [{
+                 ticks: {
+                     beginAtZero: true
+                 }
+             }]
+         }
+     }
+ });
+</script>
+
+</body>
+<style type="text/css">
+#container {
+  margin: 20px;
+  width: 400px;
+  height: 8px;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
+.tabs .tab a{
+    color:#008080;
+} /*Black color to the text*/
+
+.tabs .tab a:hover {
+    color:#008080;
+    background-color: rgba(00, 128, 128, 0.2);
+} /*Text color on hover*/
+
+.tabs .tab a:focus.active {
+  color:#008080;
+  /*Custom Text Color While Active*/
+  background-color: rgba(00, 128, 128, 0.2);
+  /*Custom Background Color While Active*/
+}
+
+.tabs .tab a.active {
+    background-color:#eee;
+    color:#008080;
+} /*Background and text color when a tab is active*/
+
+.tabs .indicator {
+    background-color:#008080;
+} /*Color of underline*/
+
+</style>
+
+</html>

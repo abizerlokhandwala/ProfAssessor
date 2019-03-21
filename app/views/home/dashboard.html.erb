@@ -1,27 +1,28 @@
 <% if current_user.role.to_i == 0%>
 <% else %>
-  <%= @subject %> <br>
+  <!-- <%= @subject %> <br> -->
 <% end %>
 <% if current_user.role.to_i == 0 %>
   <%=render :partial => 'student_dashboard' %>
 <% else %>
-<%= link_to 'BE1', dashboard_teacher_path(:student_class => 'BE1'),  { :remote => true, 'data-target' => '#pie_chart', class: 'btn btn-primary btn' }  %>
-<%= link_to 'BE2', dashboard_teacher_path(:student_class => 'BE2'),  { :remote => true, 'data-target' => '#pie_chart', class: 'btn btn-primary btn' }  %>
-<%= link_to 'BE3', dashboard_teacher_path(:student_class => 'BE3'),  { :remote => true, 'data-target' => '#pie_chart', class: 'btn btn-primary btn' }  %>
-<div id="pie_chart">
+  <%=render :partial => 'teacher_dashboard' %>
+  <!-- <%= link_to 'BE1', dashboard_teacher_path(:student_class => 'BE1'),  { :remote => true, 'data-target' => '#pie_chart', class: 'btn btn-primary btn' }  %>
+  <%= link_to 'BE2', dashboard_teacher_path(:student_class => 'BE2'),  { :remote => true, 'data-target' => '#pie_chart', class: 'btn btn-primary btn' }  %>
+  <%= link_to 'BE3', dashboard_teacher_path(:student_class => 'BE3'),  { :remote => true, 'data-target' => '#pie_chart', class: 'btn btn-primary btn' }  %>
+  <div id="pie_chart">
 
-</div>
+  </div>
 
-<div>
-  <h2>Analysis</h2>
-</div>
+  <div>
+    <h2>Analysis</h2>
+  </div>
 
-<div>
-  <h3>Detailed Analysis of Clusters</h3>
-  <% @cluster_details.each do |i| %>
-    <h4>Cluster <%=i.id%></h4>
-    <%=i.description%>
-  <% end %>
-</div>
-<%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+  <div>
+    <h3>Detailed Analysis of Clusters</h3>
+    <% @cluster_details.each do |i| %>
+      <h4>Cluster <%=i.id%></h4>
+      <%=i.description%>
+    <% end %>
+  </div>
+  <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %> -->
 <% end %>
