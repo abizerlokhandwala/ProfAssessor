@@ -57,12 +57,14 @@
           <li class="tab col s4"><a href="#c2">Teach assist</a></li>
         </ul>
       <div id="c1" class="col s12" style="padding:5%">
+        <h4 style="text-align:center;">Student Distribution Graph</h4>
         <canvas id="pie1"></canvas>
         <br>
         <br>
         <div class="row">
           <div class="col s12 z-depth-2" style="padding:3%">
             <p style="font-size:30px">Analysis</p>
+
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
 
@@ -74,7 +76,7 @@
           <li>
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>Group A</div>
             <div class="collapsible-body">
-              <p>Description here</p>
+              <p>These students have <b>high aptitude</b>, <b>technical knowledge</b> and are <b>interested in their technical courses</b> . They also have a keen <b>interest in extra curricular activities</b>, hence making them strong in both <b>academic and practical</b> aspects.</p>
               <p>The following students from class <%=@student_class%> are part of Group A: </p>
               <%if @all_students.present? then%>
                 <%@all_students.each do |i|%>
@@ -88,7 +90,7 @@
           <li>
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>Group B</div>
             <div class="collapsible-body">
-              <p>Description here</p>
+              <p>These students are <b>intersted in the technical courses</b>, and have good knowledge regarding them, but <b>can be more involved in extra curricular activities</b> apart from their course studies.</p>
               <p>The following students from class <%=@student_class%> are part of Group B: </p>
               <%if @all_students.present? then%>
                 <%@all_students.each do |i|%>
@@ -102,7 +104,7 @@
           <li>
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>Group C</div>
             <div class="collapsible-body">
-              <p>Description here</p>
+              <p>These students are <b>highly serious</b> and also have <b>good knowledge of their technical courses</b>, but they have a <b>weak practical sense</b> and are <b>less involved in outside projects</b>. Their <b>aptitude can be improved</b>, which would help them grasp on new concepts faster.</p>
               <p>The following students from class <%=@student_class%> are part of Group C: </p>
               <%if @all_students.present? then%>
                 <%@all_students.each do |i|%>
@@ -116,7 +118,7 @@
           <li>
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>Group D</div>
             <div class="collapsible-body">
-              <p>Description here</p>
+              <p>These students have <b>high aptitude and logical reasoning</b>, and are involved in <b>various extra curricular projects</b>, but have <b>low interest in their technical courses</b>, hence leading to <b>weaker technical knowledge</b>.</p>
               <p>The following students from class <%=@student_class%> are part of Group D: </p>
               <%if @all_students.present? then%>
                 <%@all_students.each do |i|%>
@@ -130,7 +132,7 @@
           <li>
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>Group E</div>
             <div class="collapsible-body">
-              <p>Description here</p>
+              <p>These students have <b>low seriousness and interest towards the technical courses</b>, hence leading to them having <b>low technical knowledge and extra curricular projects</b>. This reason mainly comes from the fact that the students <b>don't feel interested enough</b> to learn more about the course, and prepare their bare minimum.</p>
               <p>The following students from class <%=@student_class%> are part of Group E: </p>
               <%if @all_students.present? then%>
                 <%@all_students.each do |i|%>
@@ -146,15 +148,18 @@
       </div>
       </div>
       <div id="c2" class="col s12" style="padding:5%">
+        <h5 style="text-align:center;">Topic Difficulty Distribution Graph</h5>
         <canvas id="chart1" ></canvas>
         <br>
+        <h5 style="text-align:center;">Time Distribution Graph</h5>
         <canvas id="chart2" ></canvas>
         <br>
         <br>
         <div class="row">
           <div class="col s12 z-depth-1" style="padding:3%">
             <p style="font-size:30px">Analysis</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p><%=@comment1%></p>
+            <p><%=@comment2%></p>
 
           </div>
 
@@ -164,84 +169,31 @@
 <h6>Difficulty of each topic sorted in decreasing order of difficulty</h6>
 <br>
         <ul class="collapsible popout">
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 1</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 2</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 3</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 4</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 5</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 6</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 7</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 8</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 9</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 10</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 11</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 12</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Topic 13</div>
-            <div class="collapsible-body">
-              <p>Abizerl123</p>
-            </div>
-          </li>
+          <% for i in 0..12 %>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">filter_drama</i><%=@arr_topics[i]%></div>
+              <div class="collapsible-body">
+                <div class="row">
+                <div class="col l5 z-depth-1" style="margin-right:20px;width:307px;height:142px">
+                  <div class="col l6" style="font-size:65px;">
+                    <p style="margin:20% 0px 0px 0px;color:#8bc34a"><%=@percent_know_hash[@arr_topics[i]]%>%</p>
+                  </div>
+                  <div class="col l6">
+                    <p style="padding-top:13%">of the students might already know the concept</p>
+                  </div>
+                </div>
+                <div class="col l5 z-depth-1" style="width:307px;height:142px">
+                  <div class="col l6" style="font-size:40px;">
+                    <p style="margin:35% 0px 0px 0px;color:#01579b;"><%=@time_needed_hash[@arr_topics[i]]%></p>
+                  </div>
+                  <div class="col l6">
+                    <p style="padding-top:22%">Avised minimum time to be spent on the topic</p>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </li>
+          <% end %>
         </ul>
       </div>
       </div>
@@ -256,6 +208,15 @@
 <div id="mycontainer" style="display:none;">
   <%=@data.to_json%>
 </div>
+
+<div id="graph_diff" style="display:none;">
+  <%=@graph_diff.to_json%>
+</div>
+
+<div id="graph_time" style="display:none;">
+  <%=@graph_time.to_json%>
+</div>
+
 
   <!-- Footer -->
 <!-- End page content -->
@@ -272,6 +233,8 @@ M.Range.init($('input[type=range]'));
 //collapsible init
 var data = document.getElementById("mycontainer").innerHTML;
 data = JSON.parse(data);
+var graph_diff = JSON.parse(document.getElementById("graph_diff").innerHTML);
+var graph_time = JSON.parse(document.getElementById("graph_time").innerHTML);
 $(document).ready(function(){
    $('.collapsible').collapsible();
  });
@@ -295,7 +258,7 @@ $(document).ready(function(){
        labels: ["Methods","Syntax","Applets","Streams","Threads","OOP","Exceptions","GUI","Objects","JDK","Arrays","Strings","Files"],
          datasets: [{
              label: 'Difficulty',
-             data: [0.2,0.23,0.15,0.3,0.2,0.23,0.15,0.3,0.2,0.23,0.15,0.3,0.2],
+             data: graph_diff,
              backgroundColor: ["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)"],
              borderColor: ["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)","rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)"],
              borderWidth: 1,
@@ -319,7 +282,7 @@ $(document).ready(function(){
        labels: ["Methods","Syntax","Applets","Streams","Threads","OOP","Exceptions","GUI","Objects","JDK","Arrays","Strings","Files"],
          datasets: [{
              label: 'Time to be spent',
-             data: [0.2,0.23,0.15,0.3,0.2,0.23,0.15,0.3,0.2,0.23,0.15,0.3,0.2],
+             data: graph_time,
              backgroundColor: ["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)"],
              borderColor: ["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)","rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)"],
              borderWidth: 1,

@@ -61,9 +61,49 @@ class HomeController < ApplicationController
     @subject = current_user.subject
     @cluster_details = Cluster.all
     @data, @all_students = StudentAttribute.get_pie_data(@student_class)
-    # puts @all_students[0].user.email
-    
+    argstring = ""
+    @data.each do |i|
+      argstring+=i.to_s
+      argstring+=" "
+    end
+    @arr_topics = ["Methods","Syntax","Applets","Streams","Threads","OOP","Exceptions","GUI","Objects","JDK","Arrays","Strings","Files"]
+    argstring = argstring[0...-1]
+    final_json = `python3 lib/assets/final_codes/pyBKT/test/mymodel.py 1 #{argstring}`
+    final_json = JSON.parse(final_json)
+    @graph_diff = final_json["graph_diff"]
+    @graph_diff = @graph_diff[1..-2]
+    @graph_diff.delete! "'"
+    @graph_diff = @graph_diff.split(',')
+    @graph_diff = @graph_diff.map(&:to_f)
+    @graph_time = final_json["graph_time"]
+    @graph_time = @graph_time[1..-2]
+    @graph_time.delete! "'"
+    @graph_time = @graph_time.split(',')
+    @graph_time = @graph_time.map(&:to_f)
+    @percentknow = final_json["percentknow"]
+    @time_needed = final_json["timestr"]
+    @analysis_forget = final_json["analysis1forget"]
+    @analysis_silly = final_json["analysis2silly"]
+    @analysis_forget = @analysis_forget[1..-2]
+    @analysis_forget = @analysis_forget.split(',')
+    @analysis_silly = @analysis_silly[1..-2]
+    @analysis_silly = @analysis_silly.split(',')
+    @percentknow = @percentknow[1..-2]
+    @percentknow = @percentknow.split(',')
+    @percent_know_hash = Hash.new
+    for i in 0..12
+      @percent_know_hash[@arr_topics[i]] = @percentknow[i]
+    end
+    # puts @percent_know_hash
+    @time_needed = @time_needed[1..-2]
+    @time_needed.delete! "'"
+    @time_needed = @time_needed.split(',')
+    @time_needed_hash = Hash.new
+    for i in 0..13
+      @time_needed_hash[@arr_topics[i]] = @time_needed[i]
+    end
+    @comment1 = "Students tend to forget the topics <b>#{@arr_topics[@analysis_forget[0].to_i]}</b>, <b>#{@arr_topics[@analysis_forget[1].to_i]}</b> and <b>#{@arr_topics[@analysis_forget[2].to_i]}</b> the most, so it is advised to revise the topic frequently.".html_safe
+    @comment2 = "Students tend to make silly mistakes in the topics <b>#{@arr_topics[@analysis_silly[0].to_i]}</b>, <b>#{@arr_topics[@analysis_silly[1].to_i]}</b> and <b>#{@arr_topics[@analysis_silly[2].to_i]}</b> the most, so it is advised to explain concepts in more detail.".html_safe
     render 'dashboard'
   end
-
 end

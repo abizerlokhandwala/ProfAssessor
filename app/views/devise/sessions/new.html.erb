@@ -1,26 +1,268 @@
-<h2>Log in</h2>
+<!DOCTYPE html>
+<html>
+<title>Login</title>
+<meta charset="UTF-8">
+<!--Responsive Meta Tag-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import materialize.css-->
+<!-- <link rel="stylesheet" href="style.css"> -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!--Import jQuery Library-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!--Import materialize.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="progressbar.js"></script>
+<style type="text/css">
+.tabs .tab a{
+    color:#008080;
+} /*Black color to the text*/
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+.tabs .tab a:hover {
+    color:#008080;
+    background-color: rgba(00, 128, 128, 0.2);
+} /*Text color on hover*/
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+.tabs .tab a:focus.active {
+  color:#008080;
+  /*Custom Text Color While Active*/
+  background-color: rgba(00, 128, 128, 0.2);
+  /*Custom Background Color While Active*/
+}
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+.tabs .tab a.active {
+    color:#008080;
+} /*Background and text color when a tab is active*/
+
+.tabs .indicator {
+    background-color:#008080;
+} /*Color of underline*/
+</style>
+<body>
+<main>
+
+<!-- !PAGE CONTENT! -->
+<div class="container" style="margin-top:6%">
+  <div class="row">
+    <div class="col s6 offset-s3 z-depth-4" style="padding:0px">
+      <ul class="tabs">
+        <li class="tab col s3"><a class="active" href="#test1">Log in</a></li>
+        <li class="tab col s3"><a href="#test2">Sign up</a></li>
+      </ul>
+      <div id="test1" class="col s12" style="padding:3%">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: "login_form"}) do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+          <p style="padding-left:3%">
+            <label>
+              <input type="checkbox" checked="checked" id="remember_me" />
+              <span>Remember me</span>
+            </label>
+          </p>
+          <% end %>
+
+          <button class="btn waves-effect waves-light" type="submit" name="action" style="margin:2%">Log in
+            <div class="actions">
+              <%= f.submit "Log in" %>
+              <i class="material-icons right">send</i>
+            </div>
+          </button>
+        <% end %>
+        <!-- <div class="input-field col s12">
+          <input id="email" type="email" class="validate" required>
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" required>
+          <label for="password">Password</label>
+        </div> -->
+      <!-- <p style="padding-left:3%">
+        <label>
+        <input type="checkbox" checked="checked" id="remember" />
+        <span>Remember me</span>
+      </label>
+      </p> -->
     </div>
-  <% end %>
+    <div id="test2" class="col s12" style="padding:3%">
+      <div class="">
+        <ul class="collapsible popout">
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Student</div>
+            <div class="collapsible-body">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: "signup_student_form"}) do |f| %>
+              <!-- <div class="input-field">
+                <input id="emails" type="email" class="validate" required>
+                <label for="emails">Email</label>
+              </div> -->
+              <div class="input-field">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "validate" %>
+              </div>
+              <!-- <div class="input-field">
+                <input id="passwords" type="password" class="validate">
+                <label for="passwords">Password</label>
+              </div> -->
+              <div class="input-field">
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password", class: "validate", id: "passwords" %>
+              </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+              <div class="input-field">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "validate" %>
+              </div>
+
+              <!-- <div class="input-field">
+                <input id="re_passwords" type="password" class="validate" data-rule-equalTo="#passwords" >
+                <label for="re_passwords">Retype password</label>
+              </div> -->
+
+              <div class="input-field">
+                <%= f.label :First_Name, :required => true%><br />
+                <%= f.text_field :fname %>
+              </div>
+
+              <div class="input-field">
+                <%= f.label :Last_Name, :required => true %><br />
+                <%= f.text_field :lname %>
+              </div>
+
+              <div class="input-field">
+                <%= f.label :class, :required => true %><br />
+                <%= f.text_field :student_class %>
+              </div>
+
+              <div class="input-field">
+                <%= f.label :date_of_birth, :required => true %><br />
+                <%= f.date_field :dob %>
+              </div>
+
+              <!-- <div class="input-field">
+                <input id="fnames" type="text" required>
+                <label for="fnames">First name</label>
+              </div> -->
+              <!-- <div class="input-field">
+                <input id="lnames" type="text" required>
+                <label for="lnames">Last name</label>
+              </div> -->
+              <!-- <div class="input-field">
+                <input id="class" type="text" required>
+                <label for="class">Class</label>
+              </div> -->
+              <!-- <div class="input-field">
+                <input id="subj" type="text" required>
+                <label for="subj">Subject</label>
+              </div>
+              <label for="dates">Date of birth</label>
+              <input id='dates' type="text" class="datepicker" default-date required> -->
+              <%= f.hidden_field :role %>
+              <%= hidden_field_tag "user_role", "0"  %>
+            <br>
+            <br>
+            <button class="btn waves-effect waves-light" type="submit" name="action" style="margin:2%">Sign up
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>Teacher</div>
+            <div class="collapsible-body">
+              <form id="signup_teacher_form" method="post" action="abizer-ka-teacher.kaam">
+              <div class="input-field">
+                <input id="emailt" type="email" class="validate" required>
+                <label for="emailt">Email</label>
+              </div>
+              <div class="input-field">
+                <input id="passwordt" type="password" class="validate" required>
+                <label for="passwordt">Password</label>
+              </div>
+              <div class="input-field">
+                <input id="re_passwordt" type="password" class="validate" required>
+                <label for="re_passwordt">Retype password</label>
+              </div>
+              <div class="input-field">
+                <input id="fnamet" type="text" required>
+                <label for="fnamet">First name</label>
+              </div>
+              <div class="input-field">
+                <input id="lnamet" type="text" required>
+                <label for="lnamet">Last name</label>
+              </div>
+            <br>
+
+            <button class="btn waves-effect waves-light" type="submit" name="action" style="margin:2%">Log in
+              <div class="actions">
+                <%= f.submit "Log in" %>
+                <i class="material-icons right">send</i>
+              </div>
+            </button>
+    <% end %>
+          </form>
+            </div>
+          </li>
+          </ul>
+          </div>
+
   </div>
-<% end %>
+  </div>
+  </div>
+</div>
+  <br>
+</main>
+<!-- Footer -->
+<!-- End page content -->
 
 <%= render "devise/shared/links" %>
+
+<script type="text/javascript">
+  //init materialze elements
+  M.AutoInit();
+  //set default date
+  var element = document.querySelector('.datepicker');
+  M.Datepicker.getInstance(element).setDate(new Date(1997,0,1), true);
+  //student password validation
+  var passwords = document.getElementById("passwords")
+    , confirm_passwords = document.getElementById("re_passwords");
+
+  function validatePasswords(){
+    if(passwords.value != confirm_passwords.value) {
+      confirm_passwords.setCustomValidity("Passwords don't match");
+    } else {
+      confirm_passwords.setCustomValidity('');
+    }
+  }
+  passwords.onchange = validatePasswords;
+  confirm_passwords.onkeyup = validatePasswords;
+  //teacher password validation
+  var passwordt = document.getElementById("passwordt")
+    , confirm_passwordt = document.getElementById("re_passwordt");
+
+  function validatePasswordt(){
+    if(passwordt.value != confirm_passwordt.value) {
+      confirm_passwordt.setCustomValidity("Passwords don't match");
+    } else {
+      confirm_passwordt.setCustomValidity('');
+    }
+  }
+  passwordt.onchange = validatePasswordt;
+  confirm_passwordt.onkeyup = validatePasswordt;
+</script>
+
+</body>
+</html>
