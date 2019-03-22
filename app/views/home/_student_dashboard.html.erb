@@ -30,15 +30,18 @@
 <!-- Sidebar/menu -->
 <div class="row Pad_top">
     <div class="container" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'>
-      <ul id="sidenav-left" class="sidenav sidenav-fixed" style="background-color:#121B2C">
+      <ul id="sidenav-left" class="sidenav sidenav-fixed" style="background-color:#01579b">
         <li>
         <div class="user-view">
           <a href="#user"><img class="circle" src="/images/IMG.png"></a>
           <a href="#name"><span class="white-text name" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'><%=@name.capitalize%></span></a>
+          <span class="white-text name" style='margin-top:0px;font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'><%=@email%></span>
+          <span class="white-text name" style='margin-top:0px;font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'><%=@student_class%></span>
         </div>
+        <hr />
         </li>
-        <li><a href="/dashboard" class="logo-container white-text">Dashboard<i class="material-icons left white-text">spa</i></a></li>
-        <li><a class="waves-effect white-text" href="courses.html"><i class="material-icons white-text">code</i>Courses</a></li>
+        <li class="active1"><a href="/dashboard" class="logo-container white-text">Dashboard<i class="material-icons left white-text">spa</i></a></li>
+        <li><a class="waves-effect white-text" href="/courses"><i class="material-icons white-text">code</i>Courses</a></li>
         <li><%= link_to '<i class="material-icons white-text">flare</i>Sign Out'.html_safe, destroy_user_session_path, :method => :delete, :class => "waves-effect white-text" %></li>
       </ul>
     </div>
@@ -110,7 +113,7 @@
           <p style="margin:20% 0px 0px 0px;color:#fb8c00"><%=@comments[5]%><span style="font-size:50px">%</span></p>
         </div>
         <div class="col l6">
-          <p style="padding-top:20%"><%=@comments[4]%></p>
+          <p style="padding-top:0%;font-size:14px"><%=@comments[4]%></p>
         </div>
       </div>
       <div class="col l5 z-depth-1" style="height:200px;border-radius:20px;">
@@ -147,7 +150,7 @@
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
     <div class="modal-content">
-      <h4>Modal Header</h4>
+      <h4>Feedback</h4>
       <form>
         <p class="range-field">
           Aptitude:
@@ -368,6 +371,7 @@ body {
 main {
     flex: 1 0 auto;
 }
+li.active1{background-color: #03a9f4}
 </style>
 
 </html>

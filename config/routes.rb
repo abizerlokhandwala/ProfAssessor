@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   get '/dashboard/feedback', to: 'home#feedback'
   get '/dashboard/teacher', to: 'home#teacher'
   get '/dashboard/all_group_details', to: 'home#all_group_details'
+  get'/courses', to: 'home#courses'
+  get'/java_course_analysis', to: 'home#java_course_analysis'
+  get'/test_java', to: 'home#test_java'
+  get'/java_results', to: 'home#java_results'
 end

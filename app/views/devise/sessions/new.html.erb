@@ -74,11 +74,9 @@
           <% end %>
 
           <button class="btn waves-effect waves-light" type="submit" name="action" style="margin:2%">Log in
-            <div class="actions">
-              <%= f.submit "Log in" %>
-              <i class="material-icons right">send</i>
-            </div>
+            <i class="material-icons right">send</i>
           </button>
+
         <% end %>
         <!-- <div class="input-field col s12">
           <input id="email" type="email" class="validate" required>
@@ -116,8 +114,9 @@
               </div> -->
               <div class="input-field">
                 <%= f.label :password %>
+                <% @minimum_password_length = 1 %>
                 <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <!-- <em>(<%= @minimum_password_length %> characters minimum)</em> -->
                 <% end %><br />
                 <%= f.password_field :password, autocomplete: "new-password", class: "validate", id: "passwords" %>
               </div>
@@ -170,49 +169,82 @@
               </div>
               <label for="dates">Date of birth</label>
               <input id='dates' type="text" class="datepicker" default-date required> -->
-              <%= f.hidden_field :role %>
-              <%= hidden_field_tag "user_role", "0"  %>
+              <%= f.hidden_field :role, value: "0" %>
             <br>
             <br>
             <button class="btn waves-effect waves-light" type="submit" name="action" style="margin:2%">Sign up
               <i class="material-icons right">send</i>
             </button>
-          </form>
+          <% end %>
             </div>
           </li>
           <li>
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>Teacher</div>
             <div class="collapsible-body">
-              <form id="signup_teacher_form" method="post" action="abizer-ka-teacher.kaam">
+              <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {id: "signup_student_form"}) do |f| %>
               <div class="input-field">
-                <input id="emailt" type="email" class="validate" required>
-                <label for="emailt">Email</label>
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "validate" %>
               </div>
               <div class="input-field">
-                <input id="passwordt" type="password" class="validate" required>
-                <label for="passwordt">Password</label>
+                <%= f.label :password %>
+                <% @minimum_password_length = 1 %>
+                <% if @minimum_password_length %>
+                <!-- <em>(<%= @minimum_password_length %> characters minimum)</em> -->
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "new-password", class: "validate", id: "passwords" %>
               </div>
-              <div class="input-field">
-                <input id="re_passwordt" type="password" class="validate" required>
-                <label for="re_passwordt">Retype password</label>
-              </div>
-              <div class="input-field">
-                <input id="fnamet" type="text" required>
-                <label for="fnamet">First name</label>
-              </div>
-              <div class="input-field">
-                <input id="lnamet" type="text" required>
-                <label for="lnamet">Last name</label>
-              </div>
-            <br>
 
-            <button class="btn waves-effect waves-light" type="submit" name="action" style="margin:2%">Log in
-              <div class="actions">
-                <%= f.submit "Log in" %>
-                <i class="material-icons right">send</i>
+              <div class="input-field">
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "validate" %>
               </div>
+
+              <div class="input-field">
+                <%= f.label :First_Name, :required => true%><br />
+                <%= f.text_field :fname %>
+              </div>
+
+              <div class="input-field">
+                <%= f.label :Last_Name, :required => true %><br />
+                <%= f.text_field :lname %>
+              </div>
+
+              <div class="input-field">
+                <%= f.label :class, :required => true %><br />
+                <%= f.text_field :subject %>
+              </div>
+
+              <div class="input-field">
+                <%= f.label :date_of_birth, :required => true %><br />
+                <%= f.date_field :dob %>
+              </div>
+
+              <!-- <div class="input-field">
+                <input id="fnames" type="text" required>
+                <label for="fnames">First name</label>
+              </div> -->
+              <!-- <div class="input-field">
+                <input id="lnames" type="text" required>
+                <label for="lnames">Last name</label>
+              </div> -->
+              <!-- <div class="input-field">
+                <input id="class" type="text" required>
+                <label for="class">Class</label>
+              </div> -->
+              <!-- <div class="input-field">
+                <input id="subj" type="text" required>
+                <label for="subj">Subject</label>
+              </div>
+              <label for="dates">Date of birth</label>
+              <input id='dates' type="text" class="datepicker" default-date required> -->
+              <%= f.hidden_field :role, value: "1" %>
+            <br>
+            <br>
+            <button class="btn waves-effect waves-light" type="submit" name="action" style="margin:2%">Sign up
+              <i class="material-icons right">send</i>
             </button>
-    <% end %>
+          <% end %>
           </form>
             </div>
           </li>
@@ -228,40 +260,12 @@
 <!-- Footer -->
 <!-- End page content -->
 
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>
 
 <script type="text/javascript">
   //init materialze elements
   M.AutoInit();
   //set default date
-  var element = document.querySelector('.datepicker');
-  M.Datepicker.getInstance(element).setDate(new Date(1997,0,1), true);
-  //student password validation
-  var passwords = document.getElementById("passwords")
-    , confirm_passwords = document.getElementById("re_passwords");
-
-  function validatePasswords(){
-    if(passwords.value != confirm_passwords.value) {
-      confirm_passwords.setCustomValidity("Passwords don't match");
-    } else {
-      confirm_passwords.setCustomValidity('');
-    }
-  }
-  passwords.onchange = validatePasswords;
-  confirm_passwords.onkeyup = validatePasswords;
-  //teacher password validation
-  var passwordt = document.getElementById("passwordt")
-    , confirm_passwordt = document.getElementById("re_passwordt");
-
-  function validatePasswordt(){
-    if(passwordt.value != confirm_passwordt.value) {
-      confirm_passwordt.setCustomValidity("Passwords don't match");
-    } else {
-      confirm_passwordt.setCustomValidity('');
-    }
-  }
-  passwordt.onchange = validatePasswordt;
-  confirm_passwordt.onkeyup = validatePasswordt;
 </script>
 
 </body>

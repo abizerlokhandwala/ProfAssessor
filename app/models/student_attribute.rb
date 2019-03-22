@@ -21,10 +21,13 @@ class StudentAttribute < ApplicationRecord
     for i in (0...@@arr.size)
       my_score = get_attribute_score(i)
       max_score = StudentAttribute.get_attribute_score_max(i)
-      # max_score = 3
-      # min_score = 1
       min_score = StudentAttribute.get_attribute_score_min(i)
+      # max_score = 3
+      min_score = 1
       my_score = (my_score-min_score) / (max_score-min_score)
+      if i==0 and my_score<0.3 then
+        my_score+=0.2
+      end
       my_score_std << my_score
     end
     my_score_std
@@ -69,7 +72,7 @@ class StudentAttribute < ApplicationRecord
 
     if indep<total/2 then
       if combined_knowledge<total/2 then
-        comments << "You're Technical Knowledge is greater than #{100*(total-combined_knowledge)/total}% of your class! Don't stop now though, keep the hardwork consistent to keep the lead!"
+        comments << "Your Technical Knowledge is greater than #{100*(total-combined_knowledge)/total}% of your class! Don't stop now though, keep the hardwork consistent to keep the lead!"
         comments << "#{100*(total-combined_knowledge)/total}"
       else
         comments << "#{100*combined_knowledge/total}% of your class is technically smarter than you, but you can bridge that gap by consistently working towards your goal, dont give up!"

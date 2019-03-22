@@ -106,4 +106,41 @@ class HomeController < ApplicationController
     @comment2 = "Students tend to make silly mistakes in the topics <b>#{@arr_topics[@analysis_silly[0].to_i]}</b>, <b>#{@arr_topics[@analysis_silly[1].to_i]}</b> and <b>#{@arr_topics[@analysis_silly[2].to_i]}</b> the most, so it is advised to explain concepts in more detail.".html_safe
     render 'dashboard'
   end
+
+  def courses
+    @name = current_user.fname+" "+current_user.lname
+    @email = current_user.email
+    @student_class = current_user.student_class
+    @attr_val = current_user.student_attribute.get_all_attribute_score_std
+    @comments = current_user.student_attribute.get_comments
+    render 'courses'
+  end
+
+  def test_java
+    @name = current_user.fname+" "+current_user.lname
+    @email = current_user.email
+    @student_class = current_user.student_class
+    @attr_val = current_user.student_attribute.get_all_attribute_score_std
+    @comments = current_user.student_attribute.get_comments
+
+  end
+
+  def java_course_analysis
+    @name = current_user.fname+" "+current_user.lname
+    @email = current_user.email
+    @student_class = current_user.student_class
+    @attr_val = current_user.student_attribute.get_all_attribute_score_std
+    @comments = current_user.student_attribute.get_comments
+
+  end
+
+  def java_results
+    @name = current_user.fname+" "+current_user.lname
+    @email = current_user.email
+    @student_class = current_user.student_class
+    @attr_val = current_user.student_attribute.get_all_attribute_score_std
+    @comments = current_user.student_attribute.get_comments
+
+  end
+
 end

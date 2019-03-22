@@ -31,18 +31,36 @@
 <!-- Sidebar/menu -->
 <div class="row Pad_top">
     <div class="container" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'>
-      <ul id="sidenav-left" class="sidenav sidenav-fixed" style="background-color:#121B2C">
+      <ul id="sidenav-left" class="sidenav sidenav-fixed" style="background-color:#0d47a1">
         <li>
         <div class="user-view">
           <a href="#user"><img class="circle" src="/images/IMG.png"></a>
           <a href="#name"><span class="white-text name" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'><%=@name.capitalize%></span></a>
+          <span class="white-text name" style='margin-top:0px;font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'><%=@email%></span>
+          <span class="white-text name" style='margin-top:0px;font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'><%=@subject%></span>
         </div>
         </li>
-        <li><a href="/dashboard" class="logo-container white-text">Dashboard<i class="material-icons left white-text">spa</i></a></li>
-        <li><a class="waves-effect white-text" href="courses.html"><i class="material-icons white-text">code</i>Courses</a></li>
-        <li><%= link_to '<i class="material-icons white-text">code</i>BE 1'.html_safe, dashboard_teacher_path(:student_class => 'BE1'), class: 'waves-effect white-text' %></li>
-        <li><%= link_to '<i class="material-icons white-text">code</i>BE 2'.html_safe, dashboard_teacher_path(:student_class => 'BE2'), class: 'waves-effect white-text' %></li>
-        <li><%= link_to '<i class="material-icons white-text">code</i>BE 3'.html_safe, dashboard_teacher_path(:student_class => 'BE3'), class: 'waves-effect white-text' %></li>
+        <hr />
+        <!-- <li><a href="/dashboard" class="logo-container white-text">Dashboard<i class="material-icons left white-text">spa</i></a></li> -->
+        <!-- <li><a class="waves-effect white-text" href="courses.html"><i class="material-icons white-text">code</i>Courses</a></li> -->
+        <%if @student_class == "BE1" then%>
+          <li class="active1">
+        <%else%>
+          <li>
+        <% end %>
+        <%= link_to '<i class="material-icons white-text">code</i>BE 1'.html_safe, dashboard_teacher_path(:student_class => 'BE1'), class: 'waves-effect white-text' %></li>
+        <%if @student_class == "BE2" then%>
+          <li class="active1">
+        <%else%>
+          <li>
+        <% end %>
+        <%= link_to '<i class="material-icons white-text">code</i>BE 2'.html_safe, dashboard_teacher_path(:student_class => 'BE2'), class: 'waves-effect white-text' %></li>
+        <%if @student_class == "BE3" then%>
+          <li class="active1">
+        <%else%>
+          <li>
+        <% end %>
+        <%= link_to '<i class="material-icons white-text">code</i>BE 3'.html_safe, dashboard_teacher_path(:student_class => 'BE3'), class: 'waves-effect white-text' %></li>
         <li><%= link_to '<i class="material-icons white-text">flare</i>Sign Out'.html_safe, destroy_user_session_path, :method => :delete, :class => "waves-effect white-text" %></li>
       </ul>
     </div>
@@ -54,23 +72,32 @@
       <div class="col s11 z-depth-4" style="padding:0px">
         <ul class="tabs">
           <li class="tab col s4"><a class="active" href="#c1">Student Demographic</a></li>
-          <li class="tab col s4"><a href="#c2">Teach assist</a></li>
+          <li class="tab col s4"><a href="#c2">Teacher Assist</a></li>
         </ul>
       <div id="c1" class="col s12" style="padding:5%">
         <h4 style="text-align:center;">Student Distribution Graph</h4>
+        <br />
         <canvas id="pie1"></canvas>
         <br>
         <br>
         <div class="row">
-          <div class="col s12 z-depth-2" style="padding:3%">
+          <div class="col s12 z-depth-2" style="padding:3%;border-radius:30px;padding-top:0%;">
             <p style="font-size:30px">Analysis</p>
 
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>
+              Major portion of the students are interested in the topic thus giving them extra material and assignments will be helpful.
+            </p>
+            <p>
+              Giving additional apart from the curriculum is advised.
+            </p>
+            <p>
+              Not many students need detailed background knowledge, it is advised to spend less time on pre-requisite topics.
+            </p>
           </div>
 
         </div>
         <div class="row">
-          <div class="col l11">
+          <div class="col l12">
 
         <ul class="collapsible popout">
           <li>
@@ -156,7 +183,7 @@
         <br>
         <br>
         <div class="row">
-          <div class="col s12 z-depth-1" style="padding:3%">
+          <div class="col s12 z-depth-1" style="padding:3%;border-radius:30px;padding-top:0%;">
             <p style="font-size:30px">Analysis</p>
             <p><%=@comment1%></p>
             <p><%=@comment2%></p>
@@ -164,30 +191,31 @@
           </div>
 
         </div>
+        <br />
         <div class="row">
-          <div class="col l11">
-<h6>Difficulty of each topic sorted in decreasing order of difficulty</h6>
+          <h5 style="text-align:center;">Difficulty of each topic sorted in decreasing order of difficulty</h5>
+          <div class="col l12">
 <br>
-        <ul class="collapsible popout">
+        <ul class="collapsible popout" style="text-align:center;">
           <% for i in 0..12 %>
             <li>
               <div class="collapsible-header"><i class="material-icons">filter_drama</i><%=@arr_topics[i]%></div>
               <div class="collapsible-body">
-                <div class="row">
-                <div class="col l5 z-depth-1" style="margin-right:20px;width:307px;height:142px">
+                <div class="row" style="text-align: center;margin: 0 auto 0 auto;">
+                <div class="col l5 z-depth-1" style="margin-right:30px;height:150px;width:343px">
                   <div class="col l6" style="font-size:65px;">
                     <p style="margin:20% 0px 0px 0px;color:#8bc34a"><%=@percent_know_hash[@arr_topics[i]]%>%</p>
                   </div>
                   <div class="col l6">
-                    <p style="padding-top:13%">of the students might already know the concept</p>
+                    <p style="padding-top:17%">of the students might already know the concept</p>
                   </div>
                 </div>
-                <div class="col l5 z-depth-1" style="width:307px;height:142px">
+                <div class="col l5 z-depth-1" style="height:150px;width:343px">
                   <div class="col l6" style="font-size:40px;">
                     <p style="margin:35% 0px 0px 0px;color:#01579b;"><%=@time_needed_hash[@arr_topics[i]]%></p>
                   </div>
                   <div class="col l6">
-                    <p style="padding-top:22%">Avised minimum time to be spent on the topic</p>
+                    <p style="padding-top:17%">Advised minimum time to be spent on the topic</p>
                   </div>
                 </div>
               </div>
@@ -243,7 +271,7 @@ $(document).ready(function(){
  var myChart1 = new Chart(chart1, {
      type: 'pie',
      data: {
-       labels: ["Group 1","Group 2","Group 3","Group 4","Group 5"],
+       labels: ["Group A","Group B","Group C","Group D","Group E"],
          datasets: [{
              label: 'Pie',
              data: data,
@@ -340,7 +368,7 @@ main {
 .tabs .indicator {
     background-color:#008080;
 } /*Color of underline*/
-
+li.active1{background-color: #03a9f4}
 </style>
 
 </html>
