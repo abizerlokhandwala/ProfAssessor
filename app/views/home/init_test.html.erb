@@ -37,8 +37,8 @@
           <a href="#name"><span class="white-text name" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif'><%=@name.capitalize%></span></a>
         </div>
         </li>
-        <li><a href="/dashboard" class="logo-container white-text">Dashboard<i class="material-icons left white-text">spa</i></a></li>
-        <li><a class="waves-effect white-text" href="courses.html"><i class="material-icons white-text">code</i>Courses</a></li>
+        <!-- <li><a href="/dashboard" class="logo-container white-text">Dashboard<i class="material-icons left white-text">spa</i></a></li> -->
+        <!-- <li><a class="waves-effect white-text" href="courses.html"><i class="material-icons white-text">code</i>Courses</a></li> -->
         <li><%= link_to '<i class="material-icons white-text">flare</i>Sign Out'.html_safe, destroy_user_session_path, :method => :delete, :class => "waves-effect white-text" %></li>
       </ul>
     </div>
@@ -55,25 +55,25 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q0, "Pune Institute of Computer Technology", class: "with-gap" %>
+        <%= f.radio_button :Q0, "Pune Institute of Computer Technology", class: "with-gap", :required => true%>
         <span>Pune Institute of Computer Technology</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q0, "MIT/MITCOE", class: "with-gap"  %>
+        <%= f.radio_button :Q0, "MIT/MITCOE", class: "with-gap", :required => true  %>
         <span>MIT/MITCOE</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q0, "Cummins College of Engineering", class: "with-gap"  %>
+        <%= f.radio_button :Q0, "Cummins College of Engineering", class: "with-gap", :required => true  %>
         <span>Cummins College of Engineering</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q0, "Others", class: "with-gap" %>
+        <%= f.radio_button :Q0, "Others", class: "with-gap", :required => true %>
         <span>Others</span>
       </label>
     </p>
@@ -85,31 +85,31 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q1, "Computer Engineering", class: "with-gap" %>
+        <%= f.radio_button :Q1, "Computer Engineering", class: "with-gap", :required => true %>
         <span>Computer Engineering</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q1, "IT", class: "with-gap" %>
+        <%= f.radio_button :Q1, "IT", class: "with-gap", :required => true %>
         <span>IT</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q1, "EnTC", class: "with-gap" %>
+        <%= f.radio_button :Q1, "EnTC", class: "with-gap", :required => true %>
         <span>EnTC</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q1, "Electrical Engineering", class: "with-gap" %>
+        <%= f.radio_button :Q1, "Electrical Engineering", class: "with-gap", :required => true %>
         <span>Electrical Engineering</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q1, "Mechanical or any other", class: "with-gap" %>
+        <%= f.radio_button :Q1, "Mechanical or any other", class: "with-gap", :required => true %>
         <span>Mechanical or any other</span>
       </label>
     </p>
@@ -121,25 +121,25 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q2, "First Year", class: "with-gap" %>
+        <%= f.radio_button :Q2, "First Year", class: "with-gap", :required => true %>
         <span>First Year</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q2, "Second Year", class: "with-gap" %>
+        <%= f.radio_button :Q2, "Second Year", class: "with-gap", :required => true %>
         <span>Second Year</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q2, "Third Year", class: "with-gap" %>
+        <%= f.radio_button :Q2, "Third Year", class: "with-gap", :required => true %>
         <span>Third Year</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q2, "Fourth Year", class: "with-gap" %>
+        <%= f.radio_button :Q2, "Fourth Year", class: "with-gap", :required => true %>
         <span>Fourth Year</span>
       </label>
     </p>
@@ -147,7 +147,7 @@
 
   <div class="row">
     <%=@arr_questions[3]%><br/>
-      <%= f.text_field :Q3, placeholder: "Eg: 8.35" %>
+      <%= f.text_field :Q3, placeholder: "Eg: 8.35", :required => true %>
   </div>
 
   <div class="row">
@@ -156,13 +156,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q4, "High", class: "with-gap" %>
+        <%= f.radio_button :Q4, "High", class: "with-gap", :required => true %>
         <span>High</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q4, "Average", class: "with-gap" %>
+        <%= f.radio_button :Q4, "Average", class: "with-gap", :required => true %>
         <span>Average</span>
       </label>
     </p>
@@ -174,13 +174,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q5, "Participated and Prepared", class: "with-gap" %>
+        <%= f.radio_button :Q5, "Participated and Prepared", class: "with-gap", :required => true %>
         <span>Participated and Prepared</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q5, "Not Participated", class: "with-gap" %>
+        <%= f.radio_button :Q5, "Not Participated", class: "with-gap", :required => true %>
         <span>Not Participated</span>
       </label>
     </p>
@@ -192,13 +192,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q6, "Yes", class: "with-gap" %>
+        <%= f.radio_button :Q6, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q6, "No", class: "with-gap" %>
+        <%= f.radio_button :Q6, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
@@ -210,13 +210,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q7, "Yes" %>
+        <%= f.radio_button :Q7, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q7, "No" %>
+        <%= f.radio_button :Q7, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
@@ -230,13 +230,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q8, "Yes" %>
+        <%= f.radio_button :Q8, "Yes", class: "with-gap", :required => true %>
       <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q8, "No" %>
+        <%= f.radio_button :Q8, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
@@ -248,13 +248,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q9, "Yes" %>
+        <%= f.radio_button :Q9, "Yes", class: "with-gap", :required => true %>
       <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q9, "No" %>
+        <%= f.radio_button :Q9, "No", class: "with-gap", :required => true %>
       <span>No</span>
       </label>
     </p>
@@ -267,13 +267,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q10, "Yes" %>
+        <%= f.radio_button :Q10, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q10, "No" %>
+        <%= f.radio_button :Q10, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
@@ -286,13 +286,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q11, "Yes" %>
+        <%= f.radio_button :Q11, "Yes", class: "with-gap", :required => true %>
       <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q11, "No" %>
+        <%= f.radio_button :Q11, "No", class: "with-gap", :required => true %>
       <span>No</span>
       </label>
     </p>
@@ -305,13 +305,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q12, "Yes" %>
+        <%= f.radio_button :Q12, "Yes", class: "with-gap", :required => true %>
       <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q12, "No" %>
+        <%= f.radio_button :Q12, "No", class: "with-gap", :required => true %>
       <span>No</span>
       </label>
     </p>
@@ -324,31 +324,31 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q13, "Management Studies (IIM, CAT Exam etc)" %>
+        <%= f.radio_button :Q13, "Management Studies (IIM, CAT Exam etc)", class: "with-gap", :required => true %>
         <span>Management Studies (IIM, CAT Exam etc)</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q13, "Masters in foreign country (US, Canada etc.)" %>
+        <%= f.radio_button :Q13, "Masters in foreign country (US, Canada etc.)", class: "with-gap", :required => true %>
         <span>Masters in foreign country (US, Canada etc.)</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q13, "Masters in India (MTech, GATE etc.)" %>
+        <%= f.radio_button :Q13, "Masters in India (MTech, GATE etc.)", class: "with-gap", :required => true %>
         <span>Masters in India (MTech, GATE etc.)</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q13, "Job in technical domain (Software Developer, Data Scientist etc.)" %>
+        <%= f.radio_button :Q13, "Job in technical domain (Software Developer, Data Scientist etc.)", class: "with-gap", :required => true %>
       <span>Job in technical domain (Software Developer, Data Scientist etc.)</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q13, "Job in non-technical domain (Organizational/Managerial/Content Writing/Business/Finance position etc.)" %>
+        <%= f.radio_button :Q13, "Job in non-technical domain (Organizational/Managerial/Content Writing/Business/Finance position etc.)", class: "with-gap", :required => true %>
       <span>Job in non-technical domain (Organizational/Managerial/Content Writing/Business/Finance position etc.)</span>
       </label>
     </p>
@@ -360,13 +360,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q14, "Yes" %>
+        <%= f.radio_button :Q14, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q14, "No" %>
+        <%= f.radio_button :Q14, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
@@ -379,13 +379,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q15, "Yes" %>
+        <%= f.radio_button :Q15, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q15, "No" %>
+        <%= f.radio_button :Q15, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
@@ -398,13 +398,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q16, "Yes - Almost every time" %>
+        <%= f.radio_button :Q16, "Yes - Almost every time", class: "with-gap", :required => true %>
         <span>Yes - Almost every time</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q16, "No - I do NOT ask questions or I prefer to look at the topic on my own" %>
+        <%= f.radio_button :Q16, "No - I do NOT ask questions or I prefer to look at the topic on my own", class: "with-gap", :required => true %>
         <span>No - I do NOT ask questions or I prefer to look at the topic on my own</span>
       </label>
     </p>
@@ -416,13 +416,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q17, "I ask multiple questions until the topic is clarified." %>
+        <%= f.radio_button :Q17, "I ask multiple questions until the topic is clarified.", class: "with-gap", :required => true %>
         <span>I ask multiple questions until the topic is clarified.</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q17, "I leave the topic to look at it later on." %>
+        <%= f.radio_button :Q17, "I leave the topic to look at it later on.", class: "with-gap", :required => true %>
         <span>I leave the topic to look at it later on.</span>
       </label>
     </p>
@@ -435,13 +435,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q18, "I get back to the particular topic as soon as possible/as and when I get home" %>
+        <%= f.radio_button :Q18, "I get back to the particular topic as soon as possible/as and when I get home", class: "with-gap", :required => true %>
         <span>I get back to the particular topic as soon as possible/as and when I get home</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q18, "I leave the topic and look at during examinations" %>
+        <%= f.radio_button :Q18, "I leave the topic and look at during examinations", class: "with-gap", :required => true %>
         <span>I leave the topic and look at during examinations</span>
       </label>
     </p>
@@ -453,13 +453,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q19, "I learn a topic to understand the core fundamentals/learn the topics outside the examination syllabus for better understanding" %>
+        <%= f.radio_button :Q19, "I learn a topic to understand the core fundamentals/learn the topics outside the examination syllabus for better understanding", class: "with-gap", :required => true %>
         <span>I learn a topic to understand the core fundamentals/learn the topics outside the examination syllabus for better understanding</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q19, "I learn a topic only to score marks in college/university examination", value: "I learn a topic only to score marks in college/university examination" %>
+        <%= f.radio_button :Q19, "I learn a topic only to score marks in college/university examination", value: "I learn a topic only to score marks in college/university examination", class: "with-gap", :required => true %>
         <span>I learn a topic only to score marks in college/university examination", value: "I learn a topic only to score marks in college/university examination</span>
       </label>
     </p>
@@ -472,13 +472,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q20, "Understanding the syllabus even if it would result in spending more time" %>
+        <%= f.radio_button :Q20, "Understanding the syllabus even if it would result in spending more time", class: "with-gap", :required => true %>
         <span>Understanding the syllabus even if it would result in spending more time</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q20, "Short term memorization of syllabus just to spend lesser time" %>
+        <%= f.radio_button :Q20, "Short term memorization of syllabus just to spend lesser time", class: "with-gap", :required => true %>
         <span>Short term memorization of syllabus just to spend lesser time</span>
       </label>
     </p>
@@ -491,13 +491,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q21, "Well before examinations to understand the topic better" %>
+        <%= f.radio_button :Q21, "Well before examinations to understand the topic better", class: "with-gap", :required => true %>
         <span>Well before examinations to understand the topic better</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q21, "When exams are around the corner by just focusing on the given syllabus" %>
+        <%= f.radio_button :Q21, "When exams are around the corner by just focusing on the given syllabus", class: "with-gap", :required => true %>
         <span>When exams are around the corner by just focusing on the given syllabus</span>
       </label>
     </p>
@@ -510,13 +510,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q22, "I prefer detailed study of curriculum as well as the required background knowledge" %>
+        <%= f.radio_button :Q22, "I prefer detailed study of curriculum as well as the required background knowledge", class: "with-gap", :required => true %>
         <span>I prefer detailed study of curriculum as well as the required background knowledge</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q22, "I study topics that are limited to the examination curriculum irrespective of my understanding of the topic" %>
+        <%= f.radio_button :Q22, "I study topics that are limited to the examination curriculum irrespective of my understanding of the topic", class: "with-gap", :required => true %>
         <span>I study topics that are limited to the examination curriculum irrespective of my understanding of the topic</span>
       </label>
     </p>
@@ -529,13 +529,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q23, "Yes" %>
+        <%= f.radio_button :Q23, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q23, "No" %>
+        <%= f.radio_button :Q23, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
@@ -547,13 +547,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q24, "Yes" %>
+        <%= f.radio_button :Q24, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q24, "No" %>
+        <%= f.radio_button :Q24, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
@@ -566,13 +566,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q25, "No" %>
+        <%= f.radio_button :Q25, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q25, "Yes" %>
+        <%= f.radio_button :Q25, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
@@ -585,13 +585,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q26, "Try again to understand the topic from multiple sources" %>
+        <%= f.radio_button :Q26, "Try again to understand the topic from multiple sources", class: "with-gap", :required => true %>
         <span>Try again to understand the topic from multiple sources</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q26, "Memorize the topic and its contents OR Leave it" %>
+        <%= f.radio_button :Q26, "Memorize the topic and its contents OR Leave it", class: "with-gap", :required => true %>
         <span>Memorize the topic and its contents OR Leave it</span>
       </label>
     </p>
@@ -604,13 +604,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q27, "No" %>
+        <%= f.radio_button :Q27, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q27, "Yes" %>
+        <%= f.radio_button :Q27, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
@@ -623,13 +623,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q28, "it Underestimates my knowledge" %>
+        <%= f.radio_button :Q28, "it Underestimates my knowledge", class: "with-gap", :required => true %>
         <span>it Underestimates my knowledge</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q28, "is Apt or Overestimates my knowledge" %>
+        <%= f.radio_button :Q28, "is Apt or Overestimates my knowledge", class: "with-gap", :required => true %>
         <span>is Apt or Overestimates my knowledge</span>
       </label>
     </p>
@@ -642,13 +642,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q29, "it Underestimates my efforts" %>
+        <%= f.radio_button :Q29, "it Underestimates my efforts", class: "with-gap", :required => true %>
         <span>it Underestimates my efforts</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q29, "is Apt or Overestimates my efforts" %>
+        <%= f.radio_button :Q29, "is Apt or Overestimates my efforts", class: "with-gap", :required => true %>
         <span>is Apt or Overestimates my efforts</span>
       </label>
     </p>
@@ -661,13 +661,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q30, "Start to learn and implement making the project" %>
+        <%= f.radio_button :Q30, "Start to learn and implement making the project", class: "with-gap", :required => true %>
         <span>Start to learn and implement making the project</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q30, "Delay the project and postpone it to some other time" %>
+        <%= f.radio_button :Q30, "Delay the project and postpone it to some other time", class: "with-gap", :required => true %>
         <span>Delay the project and postpone it to some other time</span>
       </label>
     </p>
@@ -680,13 +680,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q31, "Yes" %>
+        <%= f.radio_button :Q31, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q31, "No/Average performance" %>
+        <%= f.radio_button :Q31, "No/Average performance", class: "with-gap", :required => true %>
         <span>No/Average performance</span>
       </label>
     </p>
@@ -698,13 +698,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q32, "Yes" %>
+        <%= f.radio_button :Q32, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q32, "No" %>
+        <%= f.radio_button :Q32, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
@@ -716,13 +716,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q33, "Yes" %>
+        <%= f.radio_button :Q33, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q33, "No" %>
+        <%= f.radio_button :Q33, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
@@ -734,13 +734,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q34, "Yes" %>
+        <%= f.radio_button :Q34, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q34, "No" %>
+        <%= f.radio_button :Q34, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
@@ -752,13 +752,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q35, "Yes" %>
+        <%= f.radio_button :Q35, "Yes", class: "with-gap", :required => true %>
         <span>Yes</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q35, "No" %>
+        <%= f.radio_button :Q35, "No", class: "with-gap", :required => true %>
         <span>No</span>
       </label>
     </p>
@@ -770,13 +770,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q36, "Prefer" %>
+        <%= f.radio_button :Q36, "Prefer", class: "with-gap", :required => true %>
         <span>Prefer</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q36, "Do not prefer" %>
+        <%= f.radio_button :Q36, "Do not prefer", class: "with-gap", :required => true %>
         <span>Do not prefer</span>
       </label>
     </p>
@@ -788,13 +788,13 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q37, "Prefer" %>
+        <%= f.radio_button :Q37, "Prefer", class: "with-gap", :required => true %>
         <span>Prefer</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q37, "Do not prefer" %>
+        <%= f.radio_button :Q37, "Do not prefer", class: "with-gap", :required => true %>
         <span>Do not prefer</span>
       </label>
     </p>
@@ -806,19 +806,21 @@
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q38, "Prefer" %>
+        <%= f.radio_button :Q38, "Prefer", class: "with-gap", :required => true %>
         <span>Prefer</span>
       </label>
     </p>
     <p>
       <label>
-        <%= f.radio_button :Q38, "Do not prefer" %>
+        <%= f.radio_button :Q38, "Do not prefer", class: "with-gap", :required => true %>
         <span>Do not prefer</span>
       </label>
     </p>
   </div>
 
-  <%= f.submit 'Submit form', class: "btn waves-effect waves-light" %> <%#border not clickable%>
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
 
   <% end  %>
 </div>

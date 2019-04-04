@@ -71,8 +71,8 @@
   <div class="row">
       <div class="col s11 z-depth-4" style="padding:0px">
         <ul class="tabs">
-          <li class="tab col s4"><a class="active" href="#c1">Student Demographic</a></li>
-          <li class="tab col s4"><a href="#c2">Teacher Assist</a></li>
+          <li class="tab col s4"><a class="active" id="stud_demog" href="#c1" onclick="return true;">Student Demographic</a></li>
+          <li class="tab col s4"><a id="teach_assist" href="#c2" onclick="return true;">Teacher Assist</a></li>
         </ul>
       <div id="c1" class="col s12" style="padding:5%">
         <h4 style="text-align:center;">Student Distribution Graph</h4>
@@ -84,15 +84,7 @@
           <div class="col s12 z-depth-2" style="padding:3%;border-radius:30px;padding-top:0%;">
             <p style="font-size:30px">Analysis</p>
 
-            <p>
-              Major portion of the students are interested in the topic thus giving them extra material and assignments will be helpful.
-            </p>
-            <p>
-              Giving additional apart from the curriculum is advised.
-            </p>
-            <p>
-              Not many students need detailed background knowledge, it is advised to spend less time on pre-requisite topics.
-            </p>
+            <%= @cluster_analysis.html_safe %>
           </div>
 
         </div>
@@ -253,8 +245,78 @@
 //init materialze elements
 M.AutoInit();
 //sidebar init
+function load_pie(){
+  var pie1 = document.getElementById('pie1').getContext('2d');
+  var myPie1 = new Chart(pie1, {
+      type: 'pie',
+      data: {
+        labels: ["Group A","Group B","Group C","Group D","Group E"],
+          datasets: [{
+              label: 'Pie',
+              data: data,
+              backgroundColor: ["rgba(255, 99, 132)","rgba(255, 159, 64)","rgba(255, 205, 86)","rgba(75, 192, 192)","rgba(54, 162, 235)","rgba(153, 102, 255)"]
+          }]
+      }
+  });
+}
+function load_chart(){
+  var chart1 = document.getElementById('chart1').getContext('2d');
+  var myChart1 = new Chart(chart1, {
+      type: 'bar',
+      data: {
+        labels: ["Methods","Syntax","Applets","Streams","Threads","OOP","Exceptions","GUI","Objects","JDK","Arrays","Strings","Files"],
+          datasets: [{
+              label: 'Difficulty',
+              data: graph_diff,
+              backgroundColor: ["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)"],
+              borderColor: ["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)","rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)"],
+              borderWidth: 1,
+              lineTension:0
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+  var chart2 = document.getElementById('chart2').getContext('2d');
+  var myChart2= new Chart(chart2, {
+      type: 'horizontalBar',
+      data: {
+        labels: ["Methods","Syntax","Applets","Streams","Threads","OOP","Exceptions","GUI","Objects","JDK","Arrays","Strings","Files"],
+          datasets: [{
+              label: 'Time to be spent',
+              data: graph_time,
+              backgroundColor: ["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)"],
+              borderColor: ["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)","rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)"],
+              borderWidth: 1,
+              lineTension:0
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+      }
+  });
+}
 $(document).ready(function(){
   $('.sidenav').sidenav();
+  $('#teach_assist').click(function(){
+    load_chart();
+  });
+  $('#stud_demog').click(function(){
+    load_pie();
+  });
 });
 //range init
 M.Range.init($('input[type=range]'));
@@ -267,8 +329,8 @@ $(document).ready(function(){
    $('.collapsible').collapsible();
  });
 
- var chart1 = document.getElementById('pie1').getContext('2d');
- var myChart1 = new Chart(chart1, {
+ var pie1 = document.getElementById('pie1').getContext('2d');
+ var myPie1 = new Chart(pie1, {
      type: 'pie',
      data: {
        labels: ["Group A","Group B","Group C","Group D","Group E"],
@@ -279,54 +341,54 @@ $(document).ready(function(){
          }]
      }
  });
- var chart1 = document.getElementById('chart1').getContext('2d');
- var myChart1 = new Chart(chart1, {
-     type: 'bar',
-     data: {
-       labels: ["Methods","Syntax","Applets","Streams","Threads","OOP","Exceptions","GUI","Objects","JDK","Arrays","Strings","Files"],
-         datasets: [{
-             label: 'Difficulty',
-             data: graph_diff,
-             backgroundColor: ["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)"],
-             borderColor: ["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)","rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)"],
-             borderWidth: 1,
-             lineTension:0
-         }]
-     },
-     options: {
-         scales: {
-             yAxes: [{
-                 ticks: {
-                     beginAtZero: true
-                 }
-             }]
-         }
-     }
- });
- var chart2 = document.getElementById('chart2').getContext('2d');
- var myChart2= new Chart(chart2, {
-     type: 'horizontalBar',
-     data: {
-       labels: ["Methods","Syntax","Applets","Streams","Threads","OOP","Exceptions","GUI","Objects","JDK","Arrays","Strings","Files"],
-         datasets: [{
-             label: 'Time to be spent',
-             data: graph_time,
-             backgroundColor: ["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)"],
-             borderColor: ["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)","rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)"],
-             borderWidth: 1,
-             lineTension:0
-         }]
-     },
-     options: {
-         scales: {
-             yAxes: [{
-                 ticks: {
-                     beginAtZero: true
-                 }
-             }]
-         }
-     }
- });
+ // var chart1 = document.getElementById('chart1').getContext('2d');
+ // var myChart1 = new Chart(chart1, {
+ //     type: 'bar',
+ //     data: {
+ //       labels: ["Methods","Syntax","Applets","Streams","Threads","OOP","Exceptions","GUI","Objects","JDK","Arrays","Strings","Files"],
+ //         datasets: [{
+ //             label: 'Difficulty',
+ //             data: graph_diff,
+ //             backgroundColor: ["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)"],
+ //             borderColor: ["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)","rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)"],
+ //             borderWidth: 1,
+ //             lineTension:0
+ //         }]
+ //     },
+ //     options: {
+ //         scales: {
+ //             yAxes: [{
+ //                 ticks: {
+ //                     beginAtZero: true
+ //                 }
+ //             }]
+ //         }
+ //     }
+ // });
+ // var chart2 = document.getElementById('chart2').getContext('2d');
+ // var myChart2= new Chart(chart2, {
+ //     type: 'horizontalBar',
+ //     data: {
+ //       labels: ["Methods","Syntax","Applets","Streams","Threads","OOP","Exceptions","GUI","Objects","JDK","Arrays","Strings","Files"],
+ //         datasets: [{
+ //             label: 'Time to be spent',
+ //             data: graph_time,
+ //             backgroundColor: ["rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)","rgba(201, 203, 207, 0.2)","rgba(255, 99, 132, 0.2)","rgba(255, 159, 64, 0.2)","rgba(255, 205, 86, 0.2)","rgba(75, 192, 192, 0.2)","rgba(54, 162, 235, 0.2)","rgba(153, 102, 255, 0.2)"],
+ //             borderColor: ["rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)","rgb(201, 203, 207)","rgb(255, 99, 132)","rgb(255, 159, 64)","rgb(255, 205, 86)","rgb(75, 192, 192)","rgb(54, 162, 235)","rgb(153, 102, 255)"],
+ //             borderWidth: 1,
+ //             lineTension:0
+ //         }]
+ //     },
+ //     options: {
+ //         scales: {
+ //             yAxes: [{
+ //                 ticks: {
+ //                     beginAtZero: true
+ //                 }
+ //             }]
+ //         }
+ //     }
+ // });
 </script>
 
 </body>

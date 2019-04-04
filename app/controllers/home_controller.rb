@@ -34,8 +34,12 @@ class HomeController < ApplicationController
     send_data["Email Address"] = current_user.email
     for i in 0...39 do
       if i==3 then
-        send_data[@arr_questions[i]] = params[:init_test]["Q"+i.to_s].to_f
-      else send_data[@arr_questions[i]] = params[:init_test]["Q"+i.to_s].to_s
+        send_data[@arr_questions[i]] = [9.8,params[:init_test]["Q"+i.to_s].to_f].min
+      else
+        if i==0 then
+          send_data[@arr_questions[i]] = "Pune Institute of Computer Technology"
+        else send_data[@arr_questions[i]] = params[:init_test]["Q"+i.to_s].to_s
+        end
       end
     end
     result = (`python3 lib/assets/final_codes/cluster_user.py #{"'"+send_data.to_json+"'"}`)
@@ -104,6 +108,36 @@ class HomeController < ApplicationController
     end
     @comment1 = "Students tend to forget the topics <b>#{@arr_topics[@analysis_forget[0].to_i]}</b>, <b>#{@arr_topics[@analysis_forget[1].to_i]}</b> and <b>#{@arr_topics[@analysis_forget[2].to_i]}</b> the most, so it is advised to revise the topic frequently.".html_safe
     @comment2 = "Students tend to make silly mistakes in the topics <b>#{@arr_topics[@analysis_silly[0].to_i]}</b>, <b>#{@arr_topics[@analysis_silly[1].to_i]}</b> and <b>#{@arr_topics[@analysis_silly[2].to_i]}</b> the most, so it is advised to explain concepts in more detail.".html_safe
+
+    maxx = @data.max
+
+    @cluster_analysis = "<p>
+      Major portion of the students are interested in the topic thus giving them extra material and assignments will be helpful.
+    </p>
+    <p>
+      Giving additional projects apart from the curriculum is advised.
+    </p>
+    <p>
+      Not many students need detailed background knowledge, it is advised to spend less time on pre-requisite topics.
+    </p>"
+
+    for i in (1..5)
+      if @data[i]==maxx then
+        # @cluster_analysis = i.to_s
+        if i == 1 then
+          @cluster_analysis = ""
+        elsif i == 2 then
+
+        elsif i==3 then
+
+        elsif i==4 then
+
+        else
+
+        end
+      end
+    end
+
     render 'dashboard'
   end
 

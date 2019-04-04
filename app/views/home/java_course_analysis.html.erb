@@ -163,21 +163,15 @@ body {
 $(document).ready(function(){
   $('.sidenav').sidenav();
 });
-//modal init
-$(document).ready(function(){
-    $('.modal').modal();
-});
-//range init
-M.Range.init($('input[type=range]'));
 //collapsible init
 $(document).ready(function(){
    $('.collapsible').collapsible();
- });
+});
  function randomDataSet(dataSetSize, minValue, maxValue) {
-  return new Array(dataSetSize).fill(0).map(function(n) {
-    return Math.random() * (maxValue - minValue) + minValue;
-  });
-}
+    return new Array(dataSetSize).fill(0).map(function(n) {
+      return Math.random() * (maxValue - minValue) + minValue;
+    });
+ }
 // var r1=pick(50,0,1).sort(function(a, b){return a - b});
 //chart
 var labelss=['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25']
@@ -188,15 +182,15 @@ var myChart1 = new Chart(chart1, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
@@ -217,15 +211,15 @@ var myChart2 = new Chart(chart2, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
@@ -246,15 +240,15 @@ var myChart3 = new Chart(chart3, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
@@ -275,15 +269,15 @@ var myChart4 = new Chart(chart4, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
@@ -304,15 +298,15 @@ var myChart5 = new Chart(chart5, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
@@ -333,15 +327,15 @@ var myChart6 = new Chart(chart6, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
@@ -362,15 +356,15 @@ var myChart7 = new Chart(chart7, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
@@ -391,15 +385,15 @@ var myChart8 = new Chart(chart8, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
@@ -420,15 +414,15 @@ var myChart9 = new Chart(chart9, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
@@ -449,15 +443,15 @@ var myChart10 = new Chart(chart10, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
@@ -478,15 +472,15 @@ var myChart11 = new Chart(chart11, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
@@ -507,15 +501,15 @@ var myChart12 = new Chart(chart12, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
@@ -536,15 +530,15 @@ var myChart13 = new Chart(chart13, {
       labels: labelss,
         datasets: [{
             label: 'Learning',
-            data: randomDataSet(25,0,1).sort(),
-            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-            borderColor: ['rgba(255, 99, 132, 1)'],
+            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.05,0.95).sort(),
             borderWidth: 3
         },{
             label: 'Silly mistakes',
-            data: randomDataSet(25,0,1).sort().reverse(),
-            backgroundColor: ['rgba(54, 162, 235, 0.2)'],
-            borderColor: ['rgba(54, 162, 235, 1)'],
+            data: randomDataSet(25,0.1,0.9).sort().reverse(),
+            backgroundColor: ['rgba(255, 99, 132, 0.2)'],
+            borderColor: ['rgba(255, 99, 132, 1)'],
             borderWidth: 3
         }]
     },
